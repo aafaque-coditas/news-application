@@ -8,43 +8,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeNewsFeedComponent implements OnInit {
 
-  constructor(private newsService:NewsService) { }
+  constructor(private newsService: NewsService) { }
 
-  category:string='top';
-  news:any;
+  category: string = 'top';
+  news: any;
   ngOnInit(): void {
     this.getNewsData();
   }
 
-  getNewsData(){
-    this.newsService.getData().subscribe((response:any)=>{
-      console.log('response from service',response);
-      console.log('results',response.results);
-      this.news=response['results'].filter((result:any)=> result.category[0]===this.category)
-      console.log('filtered news',this.news);
-        })
-  }
-  topClicked(){
-    this.category="top";
-    this.getNewsData();
-  }
-  businessClicked(){
-    this.category="business";
-    this.getNewsData();
-  }
-  technologyClicked(){
-    this.category="technology";
-    this.getNewsData();
-  }
-  entertainmentClicked(){
-    this.category="entertainment";
-    this.getNewsData();
-  }
-  scienceClicked(){
-    this.category='science';
-    this.getNewsData();
+  getNewsData() {
+    this.newsService.getData().subscribe((response: any) => {
+      console.log('response from service', response);
+      console.log('results', response.results);
+      this.news = response['results'].filter((result: any) => result.category[0] === this.category)
+      console.log('filtered news', this.news);
+    })
   }
 
+  categoryClicked(clickedCategory: string) {
+    switch (clickedCategory) {
+      case 'top': this.category = 'top';
+        this.getNewsData();
+        break;
+      case 'business': this.category = 'business';
+        this.getNewsData();
+        break;
+      case 'entertainment': this.category = 'entertainment';
+        this.getNewsData();
+        break;
+      case 'science': this.category = 'science';
+        this.getNewsData();
+        break;
+      case 'technology': this.category = 'technology';
+        this.getNewsData();
+        break;
+
+    }
+  }
 
 
 }
