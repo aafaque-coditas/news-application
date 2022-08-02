@@ -1,0 +1,59 @@
+.navbar {
+  width: 100%;
+}
+.navbar-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem;
+  border-bottom: thin solid #ccc;
+  background-color: black;
+  color: white;
+  .logo {
+    align-self: center;
+  }
+  .news-brand {
+    display: flex;
+    padding: 0.5em;
+
+    .navbar-brand {
+      margin: 0;
+      align-items: center;
+      color: white;
+    }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    .search-bar {
+      padding: 0.25rem;
+      border-radius: 4px;
+    }
+    .search-icon {
+      padding: 0.25rem;
+      display: flex;
+    }
+  }
+}
+.nav-options {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+
+  .nav-item::after {
+    content: "";
+    display: block;
+    width: 0px;
+    height: 2px;
+    background: #fec400;
+    transition: 0.4s;
+  }
+  .nav-item:hover::after {
+    width: 100%;
+  }
+  .active {
+    border-bottom: thin solid black;
+  }
+}
