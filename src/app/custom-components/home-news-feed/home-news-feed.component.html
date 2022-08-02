@@ -1,9 +1,9 @@
 <section class="nav-options">
-    <span class="nav-item " (click)="topClicked()">Trending</span>
-    <span class="nav-item" (click)="businessClicked()">Business</span>
-    <span class="nav-item" (click)="technologyClicked()">Technology</span>
-    <span class="nav-item" (click)="entertainmentClicked()">Entertainment</span>
-    <span class="nav-item" (click)="scienceClicked()">Science</span>
+    <span class="nav-item " (click)="categoryClicked('top')">Trending</span>
+    <span class="nav-item" (click)="categoryClicked('business')">Business</span>
+    <span class="nav-item" (click)="categoryClicked('technology')">Technology</span>
+    <span class="nav-item" (click)="categoryClicked('entertainment')">Entertainment</span>
+    <span class="nav-item" (click)="categoryClicked('science')">Science</span>
   </section>
 <app-carousel [slides]="news"></app-carousel>
 <app-news-tiles [newsList]="news"></app-news-tiles>
