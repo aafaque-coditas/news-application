@@ -12,20 +12,5 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  topClicked(){
-    this.category="top"
-  }
-  businessClicked(){
-    this.category="business"
-  }
-  technologyClicked(){
-    this.category="technology"
-  }
-  entertainmentClicked(){
-    this.category="entertainment"
-  }
-  scienceClicked(){
-    this.category='science'
-  }
-
+ 
 }
