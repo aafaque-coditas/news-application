@@ -1,0 +1,7 @@
+
+<div class="news-tiles-container">
+    <div class="news-tile" *ngFor="let item of newsList">
+        <h4>{{item.title}}</h4>
+        <img class="tile-img" [src]="item.image_url">
+    </div>
+</div>

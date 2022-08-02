@@ -1,0 +1,25 @@
+
+.nav-options {
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    cursor:pointer;
+  
+    .nav-item::after {
+      content: "";
+      display: block;
+      width: 0px;
+      height: 2px;
+      background: #fec400;
+      transition: 0.4s;
+    }
+
+    .nav-item:hover::after {
+      width: 100%;
+    }
+    .active {
+      border-bottom: thin solid black;
+    }
+  }
+  
