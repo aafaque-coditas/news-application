@@ -1,10 +1,15 @@
 
 .nav-options {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.25rem;
     display: flex;
     justify-content: space-evenly;
     cursor:pointer;
+
+    .nav-item{
+          font-family: 'Nunito Sans', sans-serif;
+          font-weight: bold;
+    }
   
     .nav-item::after {
       content: "";
@@ -19,7 +24,20 @@
       width: 100%;
     }
     .active {
-      border-bottom: thin solid black;
+          
+      border-bottom: 2px solid #fec400;
     }
+  }
+  .news-list{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+  }
+  
+  @media only screen and (max-width: 425px){
+          .nav-options{
+                    font-size: 0.75rem;
+          }
   }
   

@@ -1,31 +1,45 @@
+h2{
+  margin: 0;
+}
 .navbar {
-  width: 100%;
+  width: 100vw;
 }
 .navbar-header {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.25rem;
+  justify-content: space-evenly;
+  padding: 0.5rem;
   border-bottom: thin solid #ccc;
   background-color: black;
   color: white;
   .logo {
     align-self: center;
+    font-size: 3rem;
   }
   .news-brand {
     display: flex;
+    gap: 0.75rem;
+    align-content: center;
+    width: 100%;
     padding: 0.5em;
+    font-size: 1rem;
 
     .navbar-brand {
-      margin: 0;
-      align-items: center;
+      font-family: "Playfair Display", serif;
+      font-weight: 800;
+      font-size: 3rem;
+      text-transform: uppercase;
+      display: inline-block;
+      // padding-top: 1rem;
+      line-height: 4rem;
+      // margin-bottom: 20px;
       color: white;
     }
   }
   .search {
     display: flex;
     align-items: center;
+    padding: 0.5rem;
     .search-bar {
       padding: 0.25rem;
       border-radius: 4px;
@@ -35,6 +49,29 @@
       display: flex;
       cursor: pointer;
     }
-
+  }
+}
+@media only screen and (max-width: 425px) {
+  .navbar-header {
+    .news-brand {
+      gap: 0.25rem;
+      .logo{
+        font-size: 1.5rem;
+      }
+      .navbar-brand {
+        font-size: 1.5rem;
+        // background-color: white;
+      }
+    }
+    .search{
+      
+      .search-bar{
+        width: 80%;
+        height: 1.5rem;
+      }
+      .search-icon{
+        font-size: 1.5rem;
+      }
+    }
   }
 }
