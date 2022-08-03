@@ -2,7 +2,7 @@ h2{
   margin: 0;
 }
 .navbar {
-  width: 100vw;
+  width: 100%;
 }
 .navbar-header {
   width: 100%;
@@ -42,11 +42,13 @@ h2{
     padding: 0.5rem;
     .search-bar {
       padding: 0.25rem;
+      
       border-radius: 4px;
     }
     .search-icon {
       padding: 0.25rem;
       display: flex;
+     
       cursor: pointer;
     }
   }

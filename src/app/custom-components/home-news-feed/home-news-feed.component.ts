@@ -7,29 +7,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-news-feed.component.scss'],
 })
 export class HomeNewsFeedComponent implements OnInit {
-  constructor(private newsService: NewsService) {}
+  constructor(private newsService: NewsService) { }
 
   category: string = 'top';
-  news: any;
+  news: any=[];
+  carouselSlides:any=[];
+  
   ngOnInit(): void {
     this.getNewsData();
   }
 
   getNewsData() {
     this.newsService.getData().subscribe((response: any) => {
-      console.log('response from service', response);
-      console.log('results', response.results);
-      this.news = response['results'].filter(
-        (result: any) => result.category[0] === this.category
-      );
-      console.log('filtered news', this.news);
+      
+      if(this.category==="all"){
+        this.news=response['results'];
+      }
+      else{
+        this.news = response['results'].filter(
+          (result: any) => result.category[0] === this.category
+        );
+      }
+      this.carouselSlides=this.news.slice(0,5);
+      
     });
   }
+
   changeCategory(type: string) {
     this.category = type;
     this.getNewsData();
   }
-  isActive(type:string){
-    return this.category===type ? 'active':'inactive';
+
+
+  isActive(type: string) {
+    return this.category === type ? 'active' : 'inactive';
   }
 }

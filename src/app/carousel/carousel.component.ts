@@ -1,8 +1,5 @@
-
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
-import { NewsService } from '../services/news.service';
-
 
 @Component({
   selector: 'app-carousel',
@@ -11,13 +8,13 @@ import { NewsService } from '../services/news.service';
   animations: [
     trigger('carouselAnimation', [
       transition('void=>*', [
-        style({ opacity: 0}),
-        animate('600ms', style({ opacity: 1,}),
-        
+        style({ opacity: 0 }),
+        animate('600ms', style({ opacity: 1, }),
+
         )
       ]),
       transition('*=>void', [
-        animate('600ms', style({ opacity: 0}))
+        animate('600ms', style({ opacity: 0 }))
       ])
     ])
   ]
@@ -25,58 +22,42 @@ import { NewsService } from '../services/news.service';
 export class CarouselComponent implements OnInit {
 
   @Input() slides!: any;
-  category:string="top";
-  constructor(private newsService:NewsService) { }
+  @Input() carouselSlides!: any;
 
-  ngOnInit(): void { 
-    this.newsService.getData().subscribe((res)=>{
-      console.log(res)
-      this.slides = res['results'].filter((result:any)=> result.category[0]===this.category);
-      this.nextSlide();
-    })
-    
+  category: string = "top";
+  constructor() { }
+
+  ngOnInit(): void {
+    this.nextSlide();
+
   }
   currentSlide = 0;
 
   onPreviousClick() {
     let previous = this.currentSlide - 1;
-    this.currentSlide = previous < 0 ? this.slides.length - 1 : previous;
+    this.currentSlide = previous < 0 ? this.carouselSlides.length - 1 : previous;
   }
 
   onNextClick() {
     let next = this.currentSlide + 1;
-    this.currentSlide = next === this.slides.length ? 0 : next;
+    this.currentSlide = next === this.carouselSlides.length ? 0 : next;
   }
-  
-  nextSlide(){
+
+  nextSlide() {
     let next;
-    console.log(this.slides.length)
-      setInterval(()=>{
-        console.log(1)
-         next = this.currentSlide + 1;
-        this.currentSlide = next === this.slides.length ? 0 : next;
-      },4000)
-    
+    setInterval(() => {
+      next = this.currentSlide + 1;
+      this.currentSlide = next === this.carouselSlides.length ? 0 : next;
+    }, 4000)
   }
-    
-  
+
+  changeCurrentSlide(slideNum:number){
+    this.currentSlide=slideNum;
+  }
+
+  setActiveClass(slideNumber:number){
+    return this.currentSlide==slideNumber? 'active' : '';
+  }
+
 
 }
-
-
-trigger('carouselAnimation', [
-  transition('void=>*', [
-    style({ opacity: 0 }),
-    animate('300ms', style({ opacity: 1, transform: 'translateX(200%)' }),
-    )
-  ]),
-  transition('*=>void', [
-    animate('300ms', style({ opacity: 0, transform: 'translateX(0%)' }))
-  ])
-])
-
-
-function onNextClick() {
-  throw new Error('Function not implemented.');
-}
-
