@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
+import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatIconModule,
     MatTableModule,
-   
+    NgbCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
