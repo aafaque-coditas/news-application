@@ -12,6 +12,7 @@ export class HomeNewsFeedComponent implements OnInit {
   category: string = 'top';
   news: any=[];
   carouselSlides:any=[];
+  categoryList:string[]=['All','Top','Business','Technology','Entertainment','Science']
   
   ngOnInit(): void {
     this.getNewsData();
@@ -28,18 +29,24 @@ export class HomeNewsFeedComponent implements OnInit {
           (result: any) => result.category[0] === this.category
         );
       }
-      this.carouselSlides=this.news.slice(0,5);
+      if(this.news.length<5){
+        this.carouselSlides=this.news.slice(0,this.news.length);
+      }
+      else{
+        this.carouselSlides=this.news.slice(0,5);
+      }
       
+     
     });
   }
 
   changeCategory(type: string) {
-    this.category = type;
+    this.category = type.toLowerCase();
     this.getNewsData();
   }
 
 
   isActive(type: string) {
-    return this.category === type ? 'active' : 'inactive';
+    return this.category === type.toLowerCase() ? 'active' : 'inactive';
   }
 }

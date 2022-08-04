@@ -1,5 +1,5 @@
 <div class="carousel-container">
-  <ng-container *ngFor="let slide of slides; let i = index">
+  <ng-container *ngFor="let slide of carouselSlides; let i = index">
     <div *ngIf="i === currentSlide" class="carousel-slide slide" [ngStyle]="setMyStyle(slide)" @carouselAnimation>
       <!-- <img
          *ngIf="i === currentSlide"
@@ -14,7 +14,7 @@
     </div>
   </ng-container>
 
-  <div class="dots-container">
+  <div class="dots-container" >
     <span class="dots" [ngClass]="setActiveClass(0)" (click)="changeCurrentSlide(0)"></span>
     <span class="dots" [ngClass]="setActiveClass(1)" (click)="changeCurrentSlide(1)"></span>
     <span class="dots" [ngClass]="setActiveClass(2)" (click)="changeCurrentSlide(2)"></span>

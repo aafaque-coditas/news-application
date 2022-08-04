@@ -1,6 +1,6 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { NewsService } from '../services/news.service';
+
 
 @Component({
   selector: 'app-carousel',
@@ -24,6 +24,7 @@ export class CarouselComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.carouselSlides);
     this.nextSlide();
 
   }

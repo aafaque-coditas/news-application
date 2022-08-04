@@ -1,12 +1,12 @@
 <div class="news-feed-container">
-  <section class="nav-options">
-    <span class="nav-item" (click)="changeCategory('all')" [ngClass]="isActive('all')">All</span>
-    <span class="nav-item" (click)="changeCategory('top')" [ngClass]="isActive('top')">Trending</span>
-    <span class="nav-item" (click)="changeCategory('business')" [ngClass]="isActive('business')">Business</span>
-    <span class="nav-item" (click)="changeCategory('technology')" [ngClass]="isActive('technology')">Technology</span>
-    <span class="nav-item" (click)="changeCategory('entertainment')" [ngClass]="isActive('entertainment')">Entertainment</span>
-    <span class="nav-item" (click)="changeCategory('science')" [ngClass]="isActive('science')">Science</span>
+  
+  <section  class="nav-options">
+    <ng-container *ngFor="let category of categoryList">
+      <span class="nav-item" (click)="changeCategory(category)" [ngClass]="isActive(category)">{{category}}</span>
+    </ng-container>
   </section>
+  
+
   <app-carousel [carouselSlides]="carouselSlides"></app-carousel>
   <div class="news-list">
     <app-news-tiles [newsList]="news"></app-news-tiles>
