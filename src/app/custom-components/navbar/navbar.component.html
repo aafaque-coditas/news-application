@@ -2,12 +2,24 @@
   <section class="navbar-header">
     <div class="news-brand">
       <span class="material-icons logo">article</span>
-      <h2 class="navbar-brand" href="#">News Today</h2>
+      <div>
+        <h2 class="navbar-brand" href="#">News Today</h2>
+        <!-- <div class="time-date">
+          <span class="button-time">08:55</span>
+          <span class="button-date">22.06.2018</span>
+        </div> -->
+      </div>
+
+      
     </div>
 
     <div class="search">
-      <input type="text" class="search-bar" placeholder="search...">
-      <span class="material-symbols-outlined search-icon"> search </span>
+      <!-- <input type="text" class="search-bar" placeholder="search...">
+      <span class="material-symbols-outlined search-icon"> search </span> -->
+      <mat-form-field>
+        <input type="text" matInput placeholder="Search" class="search-input" />
+        <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+      </mat-form-field>
     </div>
   </section>
 

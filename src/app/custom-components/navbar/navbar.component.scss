@@ -1,14 +1,16 @@
-h2{
+h2 {
   margin: 0;
 }
 .navbar {
   width: 100%;
+  padding: 0;
+  // box-shadow: #ccc 1.95px 1.95px 2.6px;;
 }
 .navbar-header {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  padding: 0.5rem;
+  
   border-bottom: thin solid #ccc;
   background-color: black;
   color: white;
@@ -30,10 +32,20 @@ h2{
       font-size: 3rem;
       text-transform: uppercase;
       display: inline-block;
-      // padding-top: 1rem;
+      // padding-top: 1.5rem;
       line-height: 4rem;
-      // margin-bottom: 20px;
+      // margin-bottom: 20px; 
       color: white;
+      
+    }
+    .time-date{
+      display: flex;
+      justify-content: space-evenly;
+      
+      
+      // font-family: Montserrat,MontserratV2,Verdana,arial,sans-serif/*! critical:end */;
+      // font-weight: lighter;
+      // font-size: small;
     }
   }
   .search {
@@ -45,19 +57,27 @@ h2{
       
       border-radius: 4px;
     }
-    .search-icon {
-      padding: 0.25rem;
-      display: flex;
-     
-      cursor: pointer;
+    ::ng-deep .mat-form-field-label {
+      color: white;
     }
+    ::ng-deep .mat-focused .mat-form-field-label {
+      color: white !important;
+    }
+    ::ng-deep.mat-form-field-underline {
+      background-color: white !important;
+    }
+    ::ng-deep.mat-form-field-ripple {
+      background-color: white !important;
+    }
+   
+    
   }
 }
 @media only screen and (max-width: 425px) {
   .navbar-header {
     .news-brand {
       gap: 0.25rem;
-      .logo{
+      .logo {
         font-size: 1.5rem;
       }
       .navbar-brand {
@@ -65,13 +85,12 @@ h2{
         // background-color: white;
       }
     }
-    .search{
-      
-      .search-bar{
+    .search {
+      .search-bar {
         width: 80%;
         height: 1.5rem;
       }
-      .search-icon{
+      .search-icon {
         font-size: 1.5rem;
       }
     }
