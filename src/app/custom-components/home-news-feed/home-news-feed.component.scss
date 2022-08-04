@@ -1,14 +1,21 @@
 
 .nav-options {
     width: 100%;
-    padding: 0.25rem;
+    padding: 0.1rem;
     display: flex;
     justify-content: space-evenly;
+    background-color: #fff;
+    border: thin solid #ccc;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    margin-bottom: 2px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
     cursor:pointer;
 
     .nav-item{
           font-family: 'Nunito Sans', sans-serif;
-          font-weight: bold;
+          // font-weight: bold;
     }
   
     .nav-item::after {
@@ -32,7 +39,7 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: center;
+          padding: 0.5rem 2rem;
   }
   
   @media only screen and (max-width: 425px){

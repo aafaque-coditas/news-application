@@ -1,5 +1,6 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-carousel',
@@ -9,18 +10,13 @@ import { Component, Input, OnInit } from '@angular/core';
     trigger('carouselAnimation', [
       transition('void=>*', [
         style({ opacity: 0 }),
-        animate('600ms', style({ opacity: 1, }),
-
-        )
+        animate('600ms', style({ opacity: 1 })),
       ]),
-      transition('*=>void', [
-        animate('600ms', style({ opacity: 0 }))
-      ])
-    ])
-  ]
+      transition('*=>void', [animate('600ms', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class CarouselComponent implements OnInit {
-
   @Input() slides!: any;
   @Input() carouselSlides!: any;
 
@@ -48,7 +44,7 @@ export class CarouselComponent implements OnInit {
     setInterval(() => {
       next = this.currentSlide + 1;
       this.currentSlide = next === this.carouselSlides.length ? 0 : next;
-    }, 4000)
+    }, 5000)
   }
 
   changeCurrentSlide(slideNum:number){
@@ -57,6 +53,13 @@ export class CarouselComponent implements OnInit {
 
   setActiveClass(slideNumber:number){
     return this.currentSlide==slideNumber? 'active' : '';
+  }
+
+  setMyStyle(slide: any) {
+    let styles = {
+      backgroundImage: `linear-gradient(rgb(0 0 0 / 26%), rgb(0 0 0)), url(${slide.image_url})`,
+    };
+    return styles;
   }
 
 

@@ -14,7 +14,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
-
+import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap'
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import {MatTableModule} from '@angular/material/table';
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    NgbCarouselModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
