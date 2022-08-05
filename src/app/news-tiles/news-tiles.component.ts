@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-news-tiles',
@@ -9,9 +10,14 @@ export class NewsTilesComponent implements OnInit {
 
   @Input() newsList:any;
 
-  constructor() { }
+  constructor(private newService:NewsService) { }
 
   ngOnInit(): void {
+    console.log('news-list ngOnInit')
+    this.newService.eventCallback$.subscribe((data: any)=>{
+      console.log('bro',data)
+      this.newsList=data
+    })
   }
-
+  
 }

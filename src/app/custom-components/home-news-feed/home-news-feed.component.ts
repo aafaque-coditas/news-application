@@ -11,7 +11,7 @@ export class HomeNewsFeedComponent implements OnInit {
 
   constructor(private newsService: NewsService) { }
 
-  category: string = 'top';
+  category: string = 'all';
   news: any = [];
   carouselSlides: any = [];
   categoryList: string[] = ['All', 'Top', 'Business', 'Technology', 'Entertainment', 'Science']
@@ -28,6 +28,7 @@ export class HomeNewsFeedComponent implements OnInit {
       
     })
     this.getNewsData();
+    
   }
 
   getNewsData() {
