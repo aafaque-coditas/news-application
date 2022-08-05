@@ -16,6 +16,7 @@ import { MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap'
 import {MatChipsModule} from '@angular/material/chips';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatIconModule,
     MatTableModule,
     NgbCarouselModule,
-    MatChipsModule
+    MatChipsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
