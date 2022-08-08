@@ -1,51 +1,82 @@
 .news-tiles-container {
-  // background-color: #ccc;
   width: 50%;
   left: 0;
-  // border: thin solid black;
 
   .news-tile {
     display: flex;
     justify-content: flex-start;
-    // text-align: center;
-
     gap: 2rem;
     padding: 0.3rem;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
+    .currentall {
+      color: white;
+      background-color: 2px solid #AC92EB;
+    }
+
+    .currenttop {
+      color: white;
+      background-color: 2px solid #fec400;
+    }
+
+    .currentbusiness {
+      color: white;
+      background-color: 2px solid #4FC1E8;
+    }
+
+    .currenttechnology {
+      color: white;
+      background-color: 2px solid #A0D568;
+    }
+
+    .currententertainment {
+      color: white;
+      background-color: 2px solid #ED5564;
+    }
+
+    .currentscience {
+      color: white;
+      background-color: 2px solid #6E7889;
+    }
+
     .news-title {
       font-weight: bold;
     }
-    .news-content{
-        position: relative;
-        .chip{
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
+
+    .news-content {
+      position: relative;
+
+      .chip {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
     }
 
 
     .tile-img {
       height: 100px;
       width: 100px;
-    //   transform: translateX(50%);
+      //   transform: translateX(50%);
       border-radius: 4px;
+
       img {
         object-fit: contain;
       }
     }
   }
 }
+
 @media only screen and (max-width: 425px) {
   .news-tiles-container {
     .news-tile {
-      
+
       .news-title {
-        
+
         font-size: 0.75rem;
       }
+
       .tile-img {
         height: 5rem;
         width: 5rem;

@@ -16,7 +16,10 @@ import { MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap'
 import {MatChipsModule} from '@angular/material/chips';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     HomeNewsFeedComponent,
     CarouselComponent,
-    NewsTilesComponent
+    NewsTilesComponent,
+    AdminPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MatCardModule,
     HttpClientModule,
     MatButtonModule,
@@ -39,7 +45,8 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     NgbCarouselModule,
     MatChipsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

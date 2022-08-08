@@ -24,17 +24,32 @@
       display: block;
       width: 0px;
       height: 2px;
-      background: #fec400;
+      
       transition: 0.4s;
     }
 
     .nav-item:hover::after {
       width: 100%;
     }
-    .active {
-          
+    .activeAll{
+      border-bottom:2px solid #AC92EB;
+    }
+    .activeTop {   
       border-bottom: 2px solid #fec400;
     }
+    .activeBusiness{
+      border-bottom:2px solid #4FC1E8;
+    }
+    .activeTechnology{
+      border-bottom:2px solid #A0D568;
+    }
+    .activeEntertainment{
+      border-bottom:2px solid #ED5564;
+    }
+    .activeScience{
+      border-bottom:2px solid #6E7889;
+    }
+
   }
   .news-list{
           display: flex;

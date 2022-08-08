@@ -19,13 +19,8 @@ export class HomeNewsFeedComponent implements OnInit {
   ngOnInit(): void {
     localStorage.setItem('category', 'top');
     this.newsService.filteredNews$.subscribe((response)=>{
-      if(response.length==0){
-        alert('no match for searched keyword');
-      }
-      else{
+      console.log('response in subscribe',response);
         this.news=response;
-      }
-      
     })
     this.getNewsData();
   }
@@ -56,6 +51,10 @@ export class HomeNewsFeedComponent implements OnInit {
   }
 
   isActive(type: string) {
-    return this.category === type.toLowerCase() ? 'active' : 'inactive';
+    return this.category === type.toLowerCase() ? `active${type}` : 'inactive';
+  }
+
+  categoryStyle(type:string){
+
   }
 }
