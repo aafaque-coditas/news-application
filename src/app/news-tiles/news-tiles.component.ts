@@ -13,11 +13,7 @@ export class NewsTilesComponent implements OnInit {
   constructor(private newService:NewsService) { }
 
   ngOnInit(): void {
-    console.log('news-list ngOnInit')
-    this.newService.eventCallback$.subscribe((data: any)=>{
-      console.log('bro',data)
-      this.newsList=data
-    })
+    
   }
   
 }
