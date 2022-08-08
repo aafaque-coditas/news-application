@@ -14,4 +14,8 @@ export class NewsTilesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  categoryColor(category:string){
+    return `current${category}`;
+  }
+
 }

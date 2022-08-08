@@ -4,7 +4,6 @@ h2 {
 .navbar {
   width: 100%;
   padding: 0;
-  // box-shadow: #ccc 1.95px 1.95px 2.6px;;
 }
 .navbar-header {
   width: 100%;
@@ -32,20 +31,13 @@ h2 {
       font-size: 3rem;
       text-transform: uppercase;
       display: inline-block;
-      // padding-top: 1.5rem;
       line-height: 4rem;
-      // margin-bottom: 20px; 
       color: white;
       
     }
     .time-date{
       display: flex;
       justify-content: space-evenly;
-      
-      
-      // font-family: Montserrat,MontserratV2,Verdana,arial,sans-serif/*! critical:end */;
-      // font-weight: lighter;
-      // font-size: small;
     }
   }
   .search {

@@ -1,8 +1,8 @@
 <div class="news-feed-container">
   
   <section  class="nav-options">
-    <ng-container *ngFor="let category of categoryList">
-      <span class="nav-item" (click)="changeCategory(category)" [ngClass]="isActive(category)">{{category}}</span>
+    <ng-container *ngFor="let category of categoryList" >
+      <span class="nav-item" (click)="changeCategory(category)"  [ngClass]="isActive(category)">{{category}}</span>
     </ng-container>
   </section>
   
@@ -11,5 +11,6 @@
   <div class="news-list">
     <app-news-tiles [newsList]="news"></app-news-tiles>
   </div>
+  
 </div>
 

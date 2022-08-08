@@ -1,0 +1,40 @@
+.admin-page-container{
+    min-height:100vh;
+    margin:0;
+    
+    background-color: #ccc;
+    display:flex;
+    justify-content:center;
+
+    .news-form-container{
+        background-color:white;
+        flex-basis:60%;
+        
+        
+        
+        .news-form{
+            padding:0 2rem 0;
+            display:flex;
+            flex-direction: column;
+            width:100%;
+        }
+
+        .submit-btn{
+            color:white;
+            background-color:rgba(#15b2d3,1);
+        }
+
+        .form-field{
+            display:grid;
+            grid-template-columns: 25% 75%;
+            margin-bottom:1rem;
+            
+            .input-field{
+                background-color:rgba(#ccc,0.4);
+                border:none;
+                border-bottom:thin solid;
+                padding:0.5rem;
+            }
+        }
+    }
+}

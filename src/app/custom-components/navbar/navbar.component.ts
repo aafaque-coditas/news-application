@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { NewsService } from './../../services/news.service';
+import { Component,Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,12 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  category!: string;
   
-  constructor() { }
+  searchInput:string='';
+  
+  constructor(private newsService:NewsService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   
- 
+ searchValue(){
+    this.newsService.searchData(this.searchInput);
+    this.searchInput='';
+ }
 }
