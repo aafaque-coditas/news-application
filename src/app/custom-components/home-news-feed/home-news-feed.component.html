@@ -5,12 +5,16 @@
       <span class="nav-item" (click)="changeCategory(category)"  [ngClass]="isActive(category)">{{category}}</span>
     </ng-container>
   </section>
+  <!-- <app-login-dialoguebox *ngIf="showDialog()" class="dialogue-box"></app-login-dialoguebox> -->
   
 
   <app-carousel [carouselSlides]="carouselSlides"></app-carousel>
   <div class="news-list">
     <app-news-tiles [newsList]="news"></app-news-tiles>
   </div>
+
+  
   
 </div>
+
 

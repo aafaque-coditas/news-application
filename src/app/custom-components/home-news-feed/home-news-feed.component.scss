@@ -1,5 +1,6 @@
-
-.nav-options {
+.news-feed-container{
+  // padding: relative;
+  .nav-options {
     width: 100%;
     padding: 0.1rem;
     display: flex;
@@ -16,6 +17,7 @@
 
     .nav-item{
           font-family: 'Nunito Sans', sans-serif;
+          color: black;
           // font-weight: bold;
     }
   
@@ -51,12 +53,25 @@
     }
 
   }
+  // .dialogue-box{
+  //   background-color: #0b2429;
+  //   position: absolute;
+  //   top:0;
+  //   right: 0;
+  //   z-index: 1;
+  //   padding: 1rem;
+  //   width: 30%;
+    
+  //   // opacity: 50%;
+  // }
   .news-list{
           display: flex;
           flex-direction: column;
           justify-content: center;
           padding: 0.5rem 2rem;
   }
+}
+
   
   @media only screen and (max-width: 425px){
           .nav-options{

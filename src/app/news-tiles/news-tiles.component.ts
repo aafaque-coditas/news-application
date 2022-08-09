@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-news-tiles',
