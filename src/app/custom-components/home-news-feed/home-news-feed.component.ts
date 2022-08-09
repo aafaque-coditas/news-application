@@ -58,4 +58,6 @@ export class HomeNewsFeedComponent implements OnInit {
   categoryStyle(type:string){
 
   }
+
+ 
 }

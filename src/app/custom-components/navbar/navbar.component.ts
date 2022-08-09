@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
-
+import { LoginDialogueboxComponent } from '../login-dialoguebox/login-dialoguebox.component';
+import { NgDialogAnimationService } from 'ng-dialog-animation';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -11,7 +12,9 @@ export class NavbarComponent implements OnInit {
   date!: any;
   searchInput!: any;
   todaysDate!: string;
-  constructor(private newsService: NewsService) {}
+  name:string='';
+  password:string='';
+  constructor(private newsService: NewsService, public dialog: NgDialogAnimationService){}
 
   ngOnInit(): void {
     this.date = new Date();
@@ -20,4 +23,16 @@ export class NavbarComponent implements OnInit {
   searchValue() {
     this.newsService.searchData(this.searchInput);
   }
+  openDialog(){
+    //emit boolean value which will decide ngIf condition of component
+    // this.newsService.setDialogBox()
+    const dialogRef=this.dialog.open(LoginDialogueboxComponent, {
+      width: "50%",
+      height: "100%",
+      
+      animation: { to: "left" },
+      position: { rowStart:"0"}
+    })
+  }
 }
+

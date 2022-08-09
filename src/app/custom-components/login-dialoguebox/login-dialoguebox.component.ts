@@ -28,7 +28,7 @@ export class LoginDialogueboxComponent implements OnInit {
 
   }
   closeDialogBox(){
-    return this.newService.setDialogBox()
+    // return this.newService.setDialogBox()
   }
   userLogin(){
     console.log('email',this.email)

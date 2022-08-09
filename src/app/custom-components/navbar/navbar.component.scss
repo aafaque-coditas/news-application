@@ -9,14 +9,20 @@ h2 {
 .navbar-header {
   width: 100%;
   display: flex;
+  gap: 1rem;
+  align-items: center;
   justify-content: space-evenly;
   border-bottom: thin solid #ccc;
   background-color: black;
   color: white;
+  
 
   .logo {
     align-self: center;
     font-size: 3rem;
+    h2{
+      margin:0;
+    }
   }
 
   .news-brand {
@@ -24,7 +30,7 @@ h2 {
     gap: 0.75rem;
     align-content: center;
     width: 100%;
-    padding: 0.5em;
+    padding: 0.5rem;
     font-size: 1rem;
 
     .navbar-brand {
@@ -33,8 +39,9 @@ h2 {
       font-size: 3rem;
       text-transform: uppercase;
       display: inline-block;
-      // padding-top: 1.5rem;
-      line-height: 4rem;
+      padding-top: 1rem;
+      // line-height: 4rem;
+      // padding: 0;
       // margin-bottom: 20px; 
       color: white;
     }
@@ -69,7 +76,11 @@ h2 {
       background-color: white !important;
     }
   }
+  .login-btn{
+    padding: 0.5rem;
+  }
 }
+
 @media only screen and (max-width: 425px) {
   .navbar-header {
     .news-brand {

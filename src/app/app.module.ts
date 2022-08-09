@@ -16,10 +16,16 @@ import { MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap'
 import {MatChipsModule} from '@angular/material/chips';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MatSelectModule } from '@angular/material/select';
+
+// import { FormsModule} from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { LoginDialogueboxComponent } from './custom-components/login-dialoguebox/login-dialoguebox.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +35,9 @@ import { MatSelectModule } from '@angular/material/select';
     CarouselComponent,
     NewsTilesComponent,
     AdminPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    LoginDialogueboxComponent
+
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,11 @@ import { MatSelectModule } from '@angular/material/select';
     NgbCarouselModule,
     MatChipsModule,
     FormsModule,
-    ReactiveFormsModule
+
+    ReactiveFormsModule,
+
+    MatDialogModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
