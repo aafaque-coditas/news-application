@@ -5,13 +5,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-//  {
-//   path:'',component:AppComponent,
-//   children:[
-//     {path:'',component:HomePageComponent},
-//     {path:'admin',component:AdminPageComponent}
-//   ]
-//  }
 {path:'',component:HomePageComponent},
 {path:'admin',component:AdminPageComponent}
 ];

@@ -24,10 +24,9 @@ export class CarouselComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.carouselSlides);
     this.nextSlide();
-
   }
+  
   currentSlide = 0;
 
   onPreviousClick() {
