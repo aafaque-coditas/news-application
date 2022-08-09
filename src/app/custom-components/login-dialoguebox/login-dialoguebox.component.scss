@@ -1,0 +1,44 @@
+.dialog-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .dialog-img{
+    object-fit: contain;
+    width:100%;
+    // height: 100%;
+
+  }
+  
+  .dialog-box {
+    background-color: white;
+    width: min-content;
+    border: thin solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 1rem;
+    gap: 1rem;
+    .dialog-header {
+    }
+    .dialog-content {
+      display: flex;
+      flex-direction: column;
+      .input-field{
+        background-color: #fff;
+      }
+    }
+    .dialog-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .login-btn {
+        background-color: #2196f3;
+      }
+    }
+  }
+}

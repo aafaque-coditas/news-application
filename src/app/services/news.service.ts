@@ -9,6 +9,7 @@ export class NewsService {
 
   searchBarValue: string = '';
   keywordMatch:any=[];
+  newsCollection:any;
 
   private filteredNews = new Subject<any>();
  filteredNews$ = this.filteredNews.asObservable();
@@ -41,6 +42,17 @@ export class NewsService {
   searchBarData() {
     console.log('search bar data', this.searchBarValue);
     this.filteredNews.next(this.searchBarValue);
+  }
+
+  addNews(newsValue:any){
+    console.log('service wali value',newsValue);
+    this.httpClient.get('../../assets/dummy-news.json').subscribe((response:any)=>{
+      console.log(response);
+      this.newsCollection=response;
+      this.newsCollection.results.push(newsValue);
+      console.log('updated array of news',this.newsCollection);
+      
+    })
   }
 
 

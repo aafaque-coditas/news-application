@@ -10,10 +10,13 @@ export class NewsTilesComponent implements OnInit {
 
   @Input() newsList:any;
 
-  constructor(private newService:NewsService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    
   }
-  
+
+  categoryColor(category:string){
+    return `current${category}`;
+  }
+
 }
