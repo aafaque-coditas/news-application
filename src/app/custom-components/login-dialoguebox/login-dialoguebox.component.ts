@@ -37,7 +37,7 @@ export class LoginDialogueboxComponent implements OnInit {
       this.router.navigate(['admin']);
     }
     else {
-      alert('galat info daali hai bhai');
+      alert('invalid credentials');
     }
   }
   onNoClick(): void {

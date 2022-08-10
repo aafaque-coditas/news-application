@@ -10,7 +10,7 @@ export class NewsService {
 
   searchBarValue: string = '';
   keywordMatch:any=[];
-  newsCollection:any;
+  newsCollection:any='';
   adminEmail='admin@news.com';
   adminPassword='12345678'
 
@@ -18,10 +18,16 @@ export class NewsService {
  filteredNews$ = this.filteredNews.asObservable();
 
   constructor(private httpClient: HttpClient) { 
-    this.newsCollection= this.httpClient.get('../../assets/dummy-news.json');
+    this.httpClient.get('../../assets/dummy-news.json').subscribe((response:any)=>{
+      console.log('getting data from json',response);
+      this.newsCollection=response;
+      localStorage.setItem('localData',JSON.stringify(this.newsCollection));
+    })
+    
   }
 
   getData(): Observable<any> {
+    this.newsCollection=JSON.parse(localStorage.getItem('localData') || '');
     return this.newsCollection;
   }
 
@@ -60,6 +66,7 @@ export class NewsService {
       console.log(response);
       this.newsCollection=response;
       this.newsCollection.results.push(newsValue);
+      localStorage.setItem('localData',JSON.stringify(this.newsCollection));
       console.log('updated array of news',this.newsCollection);
       return true;
     })

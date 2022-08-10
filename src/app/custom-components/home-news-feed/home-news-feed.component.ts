@@ -11,6 +11,7 @@ export class HomeNewsFeedComponent implements OnInit {
 
   constructor(private newsService: NewsService) { }
 
+  localData:any;
   category: string = 'all';
   news: any = [];
   carouselSlides: any = [];
@@ -27,14 +28,19 @@ export class HomeNewsFeedComponent implements OnInit {
   }
 
   getNewsData() {
-    this.newsService.getData().subscribe((response: any) => {
+    this.localData=localStorage.getItem('localData') || '';
+    this.localData=JSON.parse(this.localData);
+    console.log('results loading',this.localData);
+    
       if (this.category === "all") {
-        this.news = response['results'];
+        console.log('locale data',this.localData.results);
+        this.news = this.localData.results;
+        console.log('news',this.news);
       }
       else {
-        this.news = response['results'].filter(
-          (result: any) => result.category[0] === this.category
-        );
+        this.news = this.localData.results.filter(
+          (result: any) => result.category[0] === this.category || result.category===this.category);
+        console.log('news after filtering',this.news);
       }
       if (this.news.length < 5) {
         this.carouselSlides = this.news.slice(0, this.news.length);
@@ -42,7 +48,7 @@ export class HomeNewsFeedComponent implements OnInit {
       else {
         this.carouselSlides = this.news.slice(0, 5);
       }
-    });
+    
   }
 
   changeCategory(type: string) {
@@ -54,10 +60,5 @@ export class HomeNewsFeedComponent implements OnInit {
   isActive(type: string) {
     return this.category === type.toLowerCase() ? `active${type}` : 'inactive';
   }
-
-  categoryStyle(type:string){
-
-  }
-
  
 }
