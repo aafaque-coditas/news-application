@@ -6,7 +6,7 @@ import { HomeNewsFeedComponent } from './custom-components/home-news-feed/home-n
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselComponent } from './carousel/carousel.component';
 import { NewsTilesComponent } from './news-tiles/news-tiles.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -22,9 +22,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginDialogueboxComponent } from './custom-components/login-dialoguebox/login-dialoguebox.component';
+import { AuthGuard } from './services/auth.guard';
 import { NgDialogAnimationService } from 'ng-dialog-animation';
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +33,7 @@ import { NgDialogAnimationService } from 'ng-dialog-animation';
     NewsTilesComponent,
     AdminPageComponent,
     HomePageComponent,
-    LoginDialogueboxComponent
-
+    LoginDialogueboxComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,10 +52,9 @@ import { NgDialogAnimationService } from 'ng-dialog-animation';
     FormsModule,
     ReactiveFormsModule,
 
-    MatDialogModule
-  
+    MatDialogModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthGuard],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
