@@ -1,6 +1,24 @@
 <div class="admin-page-container">
     <div class="news-form-container">
         <form [formGroup]="newsForm" class="news-form" (ngSubmit)="submitNewsForm(newsForm)">
+
+            <div class="container" *ngFor="let field of formFields">
+                <div class="form-field" *ngIf="field!= 'category'">
+                    <label for="{{field}}">{{field}}</label>
+                    <input class="input-field" placeholder="Enter {{field}}" formControlName="{{field}}"
+                        name="{{field}}">
+                </div>
+
+                <div class="form-field" *ngIf="field=='category'">
+                    <label for="{{field}}">{{field}}</label>
+                    <select class="input-field" formControlName="category">
+                        <option value="{{category}}"  *ngFor="let category of categoryList"> {{category}} </option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 
+
             <div class="form-field">
                 <label for="title">Title</label>
                 <input  class="input-field" placeholder="Title" formControlName="title" name="title">
@@ -77,7 +95,7 @@
             <div class="form-field">
                 <label for="language">Language</label>
                 <input  class="input-field" placeholder="Enter Language" formControlName="language" name="language">
-            </div>
+            </div> -->
 
             <button mat-stroked-button class="submit-btn" type="submit">Add News</button>
 

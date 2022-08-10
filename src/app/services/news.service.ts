@@ -18,11 +18,17 @@ export class NewsService {
  filteredNews$ = this.filteredNews.asObservable();
 
   constructor(private httpClient: HttpClient) { 
-    this.httpClient.get('../../assets/dummy-news.json').subscribe((response:any)=>{
-      console.log('getting data from json',response);
-      this.newsCollection=response;
-      localStorage.setItem('localData',JSON.stringify(this.newsCollection));
-    })
+    if(localStorage.getItem('localData')){
+      this.newsCollection=localStorage.getItem('localData');
+    }
+    else{
+      this.httpClient.get('../../assets/dummy-news.json').subscribe((response:any)=>{
+        console.log('getting data from json',response);
+        this.newsCollection=response;
+        localStorage.setItem('localData',JSON.stringify(this.newsCollection));
+      })
+    }
+    
     
   }
 

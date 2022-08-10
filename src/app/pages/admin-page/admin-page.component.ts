@@ -14,6 +14,9 @@ export class AdminPageComponent implements OnInit {
 
   categoryList:any=['top','science','business','entertainment','technology'];
 
+  formFields:any=['title','link','keywords','creator','video_url','description','content',
+  'pub_Date','full_description','image_url','source_id','country','category','language'];
+
   ngOnInit(): void { 
     
     this.setValue();
@@ -57,7 +60,7 @@ export class AdminPageComponent implements OnInit {
       image_url:'',
       source_id:'',
       country:[],
-      category:[],
+      category:'top',
       language:''
     }
     this.newsForm.get('category')?.setValue(news['category']);
