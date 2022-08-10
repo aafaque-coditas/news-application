@@ -12,94 +12,14 @@
                 <div class="form-field" *ngIf="field=='category'">
                     <label for="{{field}}">{{field}}</label>
                     <select class="input-field" formControlName="category">
-                        <option value="{{category}}"  *ngFor="let category of categoryList"> {{category}} </option>
+                        <option value="{{category}}" *ngFor="let category of categoryList"> {{category}} </option>
                     </select>
                 </div>
             </div>
 
-            <!-- 
-
-            <div class="form-field">
-                <label for="title">Title</label>
-                <input  class="input-field" placeholder="Title" formControlName="title" name="title">
-            </div>
-
-            <div class="form-field">
-                <label for="link">Link</label>
-                <input  class="input-field" placeholder="Link" formControlName="link" name="Link">
-            </div>
-
-            <div class="form-field">
-                <label for="description">Description</label>
-                <textarea  class="input-field" placeholder="Description" formControlName="description" name="description"></textarea>
-            </div>
-
-            <div class="form-field">
-                <label for="keywords">Keywords</label>
-                <input  class="input-field" placeholder="Keywords" formControlName="keywords" name="keywords">
-            </div>
-
-            <div class="form-field">
-                <label for="creator">Creator</label>
-                <input  class="input-field" placeholder="Creator" formControlName="creator" name="creator">
-            </div>
-
-            <div class="form-field">
-                <label for="video_url">Video URL</label>
-                <input  class="input-field" placeholder="Enter Video URL" formControlName="video_url" name="video_url">
-            </div>
-
-            <div class="form-field">
-                <label for="content">Content</label>
-                <input  class="input-field" placeholder="Content" formControlName="content" name="content">
-            </div>
-
-            <div class="form-field">
-                <label for="pub_date">Publication Date</label>
-                <input type="date" id="date-field" class="input-field" formControlName="pub_Date" name="pub_date">
-                
-            </div>
-
-            <div class="form-field">
-                <label for="full_description">Full Description</label>
-                <textarea  class="input-field" placeholder="Enter description" formControlName="full_description"
-                    name="full_description"></textarea>
-            </div>
-
-            <div class="form-field">
-                <label for="image_url">Image URL</label>
-                <input  class="input-field" placeholder="Enter Image URL" formControlName="image_url" name="image_url">
-            </div>
-
-            <div class="form-field">
-                <label for="source_id">Source ID</label>
-                <input  class="input-field" placeholder="Enter Source ID" formControlName="source_id" name="source_id">
-            </div>
-
-            <div class="form-field">
-                <label for="country">Country</label>
-                <input  class="input-field" placeholder="Enter Country" formControlName="country" name="country">
-            </div>
-
-            <div class="form-field">
-                <label for="category">Category</label>
-                <div class="category-list">
-                    <select class="input-field" name="category" formControlName="category">
-                        <option value="{{category}}"  *ngFor="let category of categoryList"> {{category}} </option>
-                    </select>
-                </div>
-
-
-            </div>
-
-            <div class="form-field">
-                <label for="language">Language</label>
-                <input  class="input-field" placeholder="Enter Language" formControlName="language" name="language">
-            </div> -->
-
-            <button mat-stroked-button class="submit-btn" type="submit">Add News</button>
-
-
+            <button mat-stroked-button class="submit-btn" type="submit">
+                Add News
+            </button>
         </form>
     </div>
 </div>

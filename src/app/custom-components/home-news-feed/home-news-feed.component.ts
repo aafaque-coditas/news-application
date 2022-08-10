@@ -1,30 +1,33 @@
 import { NewsService } from '../../services/news.service';
 import { Component, Input, OnInit } from '@angular/core';
-
-
 @Component({
   selector: 'app-home-news-feed',
   templateUrl: './home-news-feed.component.html',
   styleUrls: ['./home-news-feed.component.scss'],
 })
 export class HomeNewsFeedComponent implements OnInit {
-
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService) {}
 
   localData:any;
   category: string = 'all';
   news: any = [];
   carouselSlides: any = [];
-  categoryList: string[] = ['All', 'Top', 'Business', 'Technology', 'Entertainment', 'Science']
+  categoryList: string[] = [
+    'All',
+    'Top',
+    'Business',
+    'Technology',
+    'Entertainment',
+    'Science',
+  ];
 
   ngOnInit(): void {
     localStorage.setItem('category', 'top');
-    this.newsService.filteredNews$.subscribe((response)=>{
-      console.log('response in subscribe',response);
-        this.news=response;
-    })
+    this.newsService.filteredNews$.subscribe((response) => {
+      console.log('response in subscribe', response);
+      this.news = response;
+    });
     this.getNewsData();
-    
   }
 
   getNewsData() {
@@ -44,8 +47,7 @@ export class HomeNewsFeedComponent implements OnInit {
       }
       if (this.news.length < 5) {
         this.carouselSlides = this.news.slice(0, this.news.length);
-      }
-      else {
+      } else {
         this.carouselSlides = this.news.slice(0, 5);
       }
     
@@ -60,5 +62,4 @@ export class HomeNewsFeedComponent implements OnInit {
   isActive(type: string) {
     return this.category === type.toLowerCase() ? `active${type}` : 'inactive';
   }
- 
 }

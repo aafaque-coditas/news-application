@@ -10,36 +10,6 @@
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
-    .currentall {
-      color: white;
-      background-color: 2px solid #ac92eb;
-    }
-
-    .currenttop {
-      color: white;
-      background-color: 2px solid #fec400;
-    }
-
-    .currentbusiness {
-      color: white;
-      background-color: 2px solid #4fc1e8;
-    }
-
-    .currenttechnology {
-      color: white;
-      background-color: 2px solid #a0d568;
-    }
-
-    .currententertainment {
-      color: white;
-      background-color: 2px solid #ed5564;
-    }
-
-    .currentscience {
-      color: white;
-      background-color: 2px solid #6e7889;
-    }
-
     .news-title {
       font-weight: bold;
     }
@@ -59,7 +29,6 @@
     .tile-img {
       height: 100px;
       width: 100px;
-      //   transform: translateX(50%);
       border-radius: 4px;
 
       img {

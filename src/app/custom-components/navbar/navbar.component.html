@@ -12,22 +12,15 @@
 
     <div class="search">
       <mat-form-field>
-        <input
-          matInput
-          type="text"
-          [(ngModel)]="searchInput"
-          name="value"
-          placeholder="Search"
-          class="search-input"
-        />
+        <input matInput type="text" [(ngModel)]="searchInput" name="value" placeholder="Search" class="search-input" />
         <button matSuffix mat-button (click)="searchValue()">
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
     </div>
+
     <div class="login-btn">
       <button mat-raised-button (click)="openDialog()">login</button>
     </div>
   </section>
-
 </nav>

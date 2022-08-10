@@ -4,10 +4,9 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NewsService {
-
   searchBarValue: string = '';
   keywordMatch:any=[];
   newsCollection:any='';
@@ -15,7 +14,7 @@ export class NewsService {
   adminPassword='12345678'
 
   private filteredNews = new Subject<any>();
- filteredNews$ = this.filteredNews.asObservable();
+  filteredNews$ = this.filteredNews.asObservable();
 
   constructor(private httpClient: HttpClient) { 
     if(localStorage.getItem('localData')){
@@ -38,25 +37,29 @@ export class NewsService {
   }
 
   searchData(valueToBeSearched: string) {
-    this.keywordMatch=[];
-    this.httpClient.get('../../assets/dummy-news.json').subscribe((response: any) => {
-      let currentCategory = localStorage.getItem('category');
-      response.results.map((news: any) => {
-        if (news.category[0] == currentCategory || currentCategory=='all') {
-          if (news.keywords != null) {    
-            news.keywords.map((keyword:string)=>{      
-              if(valueToBeSearched.toLowerCase()==keyword.toLowerCase()){ this.keywordMatch.push(news);
-              console.log('category matched');}
-            })
+    this.keywordMatch = [];
+    this.httpClient
+      .get('../../assets/dummy-news.json')
+      .subscribe((response: any) => {
+        let currentCategory = localStorage.getItem('category');
+        response.results.map((news: any) => {
+          if (news.category[0] == currentCategory || currentCategory == 'all') {
+            if (news.keywords != null) {
+              news.keywords.map((keyword: string) => {
+                if (valueToBeSearched.toLowerCase() == keyword.toLowerCase()) {
+                  this.keywordMatch.push(news);
+                  console.log('category matched');
+                }
+              });
+            }
+            if (news.title.includes(valueToBeSearched)) {
+              this.keywordMatch.push(news);
+              console.log('title matched');
+            }
           }
-         if(news.title.includes(valueToBeSearched)){
-          this.keywordMatch.push(news);
-          console.log('title matched')
-         }
-        }
-      })
-      console.log('keyword matches',this.keywordMatch);  
-    })
+        });
+        console.log('keyword matches', this.keywordMatch);
+      });
     this.filteredNews.next(this.keywordMatch);
   }
 
@@ -79,16 +82,16 @@ export class NewsService {
     return false;
   }
 
-  userLogin(loginCredentials:any){
-    console.log('logged in using',loginCredentials);
-    if(loginCredentials.email===this.adminEmail && loginCredentials.password===this.adminPassword)
-    { 
-      localStorage.setItem('adminToken','0987654321');
+  userLogin(loginCredentials: any) {
+    console.log('logged in using', loginCredentials);
+    if (
+      loginCredentials.email === this.adminEmail &&
+      loginCredentials.password === this.adminPassword
+    ) {
+      localStorage.setItem('adminToken', '0987654321');
       return true;
-    }
-    else{ 
+    } else {
       return false;
     }
   }
-
 }
