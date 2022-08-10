@@ -4,12 +4,8 @@
     <div class="news-content">
       <h4 class="news-title">{{ item.title }}</h4>
       <div class="chip-container">
-        <mat-chip-list
-          aria-label="Fish selection"
-          class="chip"
-          *ngFor="let ele of item.category"
-        >
-          <mat-chip>{{ ele }}</mat-chip>
+        <mat-chip-list aria-label="Fish selection" class="chip" *ngFor="let ele of item.category">
+          <mat-chip [ngStyle]="changeColor(ele)">{{ ele | titlecase }}</mat-chip>
         </mat-chip-list>
       </div>
     </div>

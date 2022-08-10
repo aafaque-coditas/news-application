@@ -15,13 +15,12 @@ h2 {
   border-bottom: thin solid #ccc;
   background-color: black;
   color: white;
-  
 
   .logo {
     align-self: center;
     font-size: 3rem;
-    h2{
-      margin:0;
+    h2 {
+      margin: 0;
     }
   }
 
@@ -40,9 +39,6 @@ h2 {
       text-transform: uppercase;
       display: inline-block;
       padding-top: 1rem;
-      // line-height: 4rem;
-      // padding: 0;
-      // margin-bottom: 20px; 
       color: white;
     }
 
@@ -50,7 +46,7 @@ h2 {
       display: flex;
       color: #ccc;
       font-family: "Space Grotesk", sans-serif;
-      font-size: 0.75rem;    
+      font-size: 0.75rem;
     }
   }
 
@@ -76,7 +72,7 @@ h2 {
       background-color: white !important;
     }
   }
-  .login-btn{
+  .login-btn {
     padding: 0.5rem;
   }
 }
