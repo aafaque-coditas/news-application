@@ -1,52 +1,56 @@
 import { NewsService } from '../../services/news.service';
 import { Component, Input, OnInit } from '@angular/core';
-
-
 @Component({
   selector: 'app-home-news-feed',
   templateUrl: './home-news-feed.component.html',
   styleUrls: ['./home-news-feed.component.scss'],
 })
 export class HomeNewsFeedComponent implements OnInit {
+  constructor(private newsService: NewsService) {}
 
-  constructor(private newsService: NewsService) { }
-
-  category: string = 'top';
+  localData:any;
+  category: string = 'all';
   news: any = [];
   carouselSlides: any = [];
-  categoryList: string[] = ['All', 'Top', 'Business', 'Technology', 'Entertainment', 'Science']
+  categoryList: string[] = [
+    'All',
+    'Top',
+    'Business',
+    'Technology',
+    'Entertainment',
+    'Science',
+  ];
 
   ngOnInit(): void {
     localStorage.setItem('category', 'top');
-    this.newsService.filteredNews$.subscribe((response)=>{
-      if(response.length==0){
-        alert('no match for searched keyword');
-      }
-      else{
-        this.news=response;
-      }
-      
-    })
+    this.newsService.filteredNews$.subscribe((response) => {
+      console.log('response in subscribe', response);
+      this.news = response;
+    });
     this.getNewsData();
   }
 
   getNewsData() {
-    this.newsService.getData().subscribe((response: any) => {
+    this.localData=localStorage.getItem('localData') || '';
+    this.localData=JSON.parse(this.localData);
+    console.log('results loading',this.localData);
+    
       if (this.category === "all") {
-        this.news = response['results'];
+        console.log('locale data',this.localData.results);
+        this.news = this.localData.results;
+        console.log('news',this.news);
       }
       else {
-        this.news = response['results'].filter(
-          (result: any) => result.category[0] === this.category
-        );
+        this.news = this.localData.results.filter(
+          (result: any) => result.category[0] === this.category || result.category===this.category);
+        console.log('news after filtering',this.news);
       }
       if (this.news.length < 5) {
         this.carouselSlides = this.news.slice(0, this.news.length);
-      }
-      else {
+      } else {
         this.carouselSlides = this.news.slice(0, 5);
       }
-    });
+    
   }
 
   changeCategory(type: string) {
@@ -56,6 +60,6 @@ export class HomeNewsFeedComponent implements OnInit {
   }
 
   isActive(type: string) {
-    return this.category === type.toLowerCase() ? 'active' : 'inactive';
+    return this.category === type.toLowerCase() ? `active${type}` : 'inactive';
   }
 }

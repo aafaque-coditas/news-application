@@ -1,0 +1,51 @@
+.admin-page-container {
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+
+    .news-form-container {
+        background-color: white;
+        flex-basis: 60%;
+        padding: 1rem 0;
+        border: thin solid #ccc;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+        .news-form {
+            padding: 0 2rem 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .submit-btn {
+            color: white;
+            background-color: rgba(#15b2d3, 1);
+            width: fit-content;
+        }
+
+        .form-field {
+            display: grid;
+            grid-template-columns: 25% 75%;
+            margin-bottom: 1rem;
+
+            .input-field {
+                background-color: rgba(#ccc, 0.4);
+                border: none;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                border-bottom: thin solid;
+                padding: 0.5rem;
+            }
+
+            #date-field {
+                width: 100%;
+                text-align: left;
+            }
+        }
+    }
+}

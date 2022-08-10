@@ -1,14 +1,13 @@
 <div class="news-tiles-container">
-    <div class="news-tile" *ngFor="let item of newsList">
-        <img class="tile-img" [src]="item.image_url">
-        <div class="news-content">
-            <h4 class="news-title">{{item.title}}</h4>
-
-            <mat-chip-list aria-label="Fish selection" class="chip">
-                <mat-chip>{{item.category[0]}}</mat-chip>
-            </mat-chip-list>
-
-        </div>
-
+  <div class="news-tile" *ngFor="let item of newsList">
+    <img class="tile-img" [src]="item.image_url" />
+    <div class="news-content">
+      <h4 class="news-title">{{ item.title }}</h4>
+      <div class="chip-container">
+        <mat-chip-list aria-label="Fish selection" class="chip" *ngFor="let ele of item.category">
+          <mat-chip [ngStyle]="changeColor(ele)">{{ ele | titlecase }}</mat-chip>
+        </mat-chip-list>
+      </div>
     </div>
+  </div>
 </div>

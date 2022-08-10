@@ -4,18 +4,23 @@
       <span class="material-icons logo">article</span>
       <div>
         <h2 class="navbar-brand" href="#">News Today</h2>
+        <div class="time-date">
+          <span class="button-date"> {{ todaysDate | date: "fullDate" }}</span>
+        </div>
       </div>
- 
     </div>
 
     <div class="search">
-      
       <mat-form-field>
-        <input matInput type="text" [(ngModel)]="searchInput" name="value"  placeholder="Search" class="search-input"/>
-        <button matSuffix mat-button (click)="searchValue()"><mat-icon>search</mat-icon></button>
+        <input matInput type="text" [(ngModel)]="searchInput" name="value" placeholder="Search" class="search-input" />
+        <button matSuffix mat-button (click)="searchValue()">
+          <mat-icon>search</mat-icon>
+        </button>
       </mat-form-field>
     </div>
+
+    <div class="login-btn">
+      <button mat-raised-button (click)="openDialog()">login</button>
+    </div>
   </section>
-
-
 </nav>

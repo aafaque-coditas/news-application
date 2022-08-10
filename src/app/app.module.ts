@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './custom-components/navbar/navbar.component';
 import { HomeNewsFeedComponent } from './custom-components/home-news-feed/home-news-feed.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselComponent } from './carousel/carousel.component';
 import { NewsTilesComponent } from './news-tiles/news-tiles.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -16,15 +15,25 @@ import { MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap'
 import {MatChipsModule} from '@angular/material/chips';
-import { FormsModule } from '@angular/forms';
-
+import {NavbarComponent} from './custom-components/navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import { LoginDialogueboxComponent } from './custom-components/login-dialoguebox/login-dialoguebox.component';
+import { AuthGuard } from './services/auth.guard';
+import { NgDialogAnimationService } from 'ng-dialog-animation';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeNewsFeedComponent,
     CarouselComponent,
-    NewsTilesComponent
+    NewsTilesComponent,
+    AdminPageComponent,
+    HomePageComponent,
+    LoginDialogueboxComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +41,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MatCardModule,
     HttpClientModule,
     MatButtonModule,
@@ -39,9 +49,12 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     NgbCarouselModule,
     MatChipsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+
+    MatDialogModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthGuard],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
