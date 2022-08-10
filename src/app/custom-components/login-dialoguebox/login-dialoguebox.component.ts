@@ -1,7 +1,7 @@
+import { NewsService } from './../../services/news.service';
 import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from 'src/app/services/news.service';
 import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-login-dialoguebox',
@@ -21,7 +21,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class LoginDialogueboxComponent implements OnInit {
   constructor(
-    private newsService: NewsService,
+    private newsService:NewsService,
     public dialogRef: MatDialogRef<any>,
     private router: Router
   ) {}
@@ -38,9 +38,10 @@ export class LoginDialogueboxComponent implements OnInit {
     if (loginStatus) {
       console.log(loginStatus);
       this.dialogRef.close();
-      this.router.navigate(['/admin']);
-    } else {
-      alert('galat info daali hai bhai');
+      this.router.navigate(['admin']);
+    }
+    else {
+      alert('invalid credentials');
     }
   }
 
