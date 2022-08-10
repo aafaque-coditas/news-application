@@ -12,7 +12,7 @@
 
     .currentall {
       color: white;
-      background-color: 2px solid #AC92EB;
+      background-color: 2px solid #ac92eb;
     }
 
     .currenttop {
@@ -22,22 +22,22 @@
 
     .currentbusiness {
       color: white;
-      background-color: 2px solid #4FC1E8;
+      background-color: 2px solid #4fc1e8;
     }
 
     .currenttechnology {
       color: white;
-      background-color: 2px solid #A0D568;
+      background-color: 2px solid #a0d568;
     }
 
     .currententertainment {
       color: white;
-      background-color: 2px solid #ED5564;
+      background-color: 2px solid #ed5564;
     }
 
     .currentscience {
       color: white;
-      background-color: 2px solid #6E7889;
+      background-color: 2px solid #6e7889;
     }
 
     .news-title {
@@ -47,13 +47,14 @@
     .news-content {
       position: relative;
 
-      .chip {
+      .chip-container {
         position: absolute;
         bottom: 0;
         left: 0;
+        display: flex;
+        gap: 0.25rem;
       }
     }
-
 
     .tile-img {
       height: 100px;
@@ -71,9 +72,7 @@
 @media only screen and (max-width: 425px) {
   .news-tiles-container {
     .news-tile {
-
       .news-title {
-
         font-size: 0.75rem;
       }
 
