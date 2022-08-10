@@ -54,10 +54,4 @@ export class HomeNewsFeedComponent implements OnInit {
   isActive(type: string) {
     return this.category === type.toLowerCase() ? `active${type}` : 'inactive';
   }
-
-  categoryStyle(type:string){
-
-  }
-
- 
 }
