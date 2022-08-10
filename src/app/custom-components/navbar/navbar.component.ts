@@ -24,12 +24,9 @@ export class NavbarComponent implements OnInit {
     this.newsService.searchData(this.searchInput);
   }
   openDialog(){
-    //emit boolean value which will decide ngIf condition of component
-    // this.newsService.setDialogBox()
     const dialogRef=this.dialog.open(LoginDialogueboxComponent, {
       width: "50%",
-      height: "100%",
-      
+      height: "100%",      
       animation: { to: "left" },
       position: { rowStart:"0"}
     })

@@ -4,49 +4,40 @@
   align-items: center;
 
   .header {
-    color: #0ACEB6;
+    color: #0aceb6;
     transform: translateY(90%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    h2{
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    h2 {
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
       font-size: 2rem;
     }
-    p{
-      color: #2E4951;
-
+    p {
+      color: #2e4951;
     }
-    
-    
   }
   .dialog-container {
-    // height: 100%;
     width: 100%;
     display: grid;
     grid-template-columns: 3fr 1fr;
     transform: translateY(25%);
-    // justify-content: center;
 
     .dialog-img {
       object-fit: contain;
       width: 100%;
-      // height: 100%;
     }
 
     .dialog-box {
       background-color: white;
       width: min-content;
-      // border: thin solid #ccc;
       display: flex;
       flex-direction: column;
       align-items: center;
       border-radius: 8px;
-      // box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
       padding: 1rem;
       gap: 1rem;
-      .dialog-header {
-      }
+
       .dialog-content {
         display: flex;
         flex-direction: column;
@@ -56,7 +47,7 @@
       }
       .dialog-footer {
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
         gap: 0.5rem;
         .login-btn {
           background-color: #2196f3;

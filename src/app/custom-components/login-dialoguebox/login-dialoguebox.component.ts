@@ -2,8 +2,7 @@ import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
-import { MatDialogRef } from "@angular/material/dialog";
-import { IUser } from 'src/app/interfaces/types';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-login-dialoguebox',
   templateUrl: './login-dialoguebox.component.html',
@@ -12,36 +11,40 @@ import { IUser } from 'src/app/interfaces/types';
     trigger('dialog', [
       transition('void => *', [
         style({ transform: 'scale3d(.3, .3, .3)' }),
-        animate(100)
+        animate(100),
       ]),
       transition('* => void', [
-        animate(100, style({ transform: 'scale3d(.0, .0, .0)' }))
-      ])
-    ])
-  ]
+        animate(100, style({ transform: 'scale3d(.0, .0, .0)' })),
+      ]),
+    ]),
+  ],
 })
 export class LoginDialogueboxComponent implements OnInit {
-
-  constructor(private newsService: NewsService, public dialogRef: MatDialogRef<any>, private router: Router) { }
+  constructor(
+    private newsService: NewsService,
+    public dialogRef: MatDialogRef<any>,
+    private router: Router
+  ) {}
   email: string = '';
   password: string = '';
-  ngOnInit(): void {
 
-  }
- 
+  ngOnInit(): void {}
+
   userLogin() {
-    let loginStatus = this.newsService.userLogin({ email: this.email, password: this.password })
+    let loginStatus = this.newsService.userLogin({
+      email: this.email,
+      password: this.password,
+    });
     if (loginStatus) {
       console.log(loginStatus);
       this.dialogRef.close();
-      this.router.navigate(['admin']);
-    }
-    else {
+      this.router.navigate(['/admin']);
+    } else {
       alert('galat info daali hai bhai');
     }
   }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 }

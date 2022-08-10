@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoginDialogueboxComponent } from './login-dialoguebox.component';
 
 describe('LoginDialogueboxComponent', () => {
@@ -8,9 +7,8 @@ describe('LoginDialogueboxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginDialogueboxComponent ]
-    })
-    .compileComponents();
+      declarations: [LoginDialogueboxComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LoginDialogueboxComponent);
     component = fixture.componentInstance;
