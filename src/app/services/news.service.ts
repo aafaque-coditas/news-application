@@ -68,7 +68,7 @@ export class NewsService {
 
   userLogin(loginCredentials:any){
     console.log('logged in using',loginCredentials);
-    if(loginCredentials.email==this.adminEmail && loginCredentials.password==this.adminPassword)
+    if(loginCredentials.email===this.adminEmail && loginCredentials.password===this.adminPassword)
     { 
       localStorage.setItem('adminToken','0987654321');
       return true;
