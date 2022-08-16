@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
 import { LoginDialogueboxComponent } from '../login-dialoguebox/login-dialoguebox.component';
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit {
   todaysDate!: string;
   name:string='';
   password:string='';
-  constructor(private newsService: NewsService, public dialog: NgDialogAnimationService){}
+  constructor(private newsService: NewsService, public dialog: NgDialogAnimationService,private router:Router){}
 
   ngOnInit(): void {
     this.date = new Date();
@@ -30,6 +31,10 @@ export class NavbarComponent implements OnInit {
       animation: { to: "left" },
       position: { rowStart:"0"}
     })
+  }
+
+  onLogoClick(){
+    this.router.navigate(['']);
   }
 }
 

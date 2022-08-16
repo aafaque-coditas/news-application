@@ -42,7 +42,7 @@ export class AdminPageComponent implements OnInit {
 
 
   submitNewsForm(formValue: any) {
-    console.log('form value', formValue.value);
+    
     this.newsService.addNews(formValue.value);
     this.router.navigate(['']);
   }
