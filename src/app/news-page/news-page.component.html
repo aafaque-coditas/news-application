@@ -1,20 +1,29 @@
 <app-navbar></app-navbar>
 <main class="news-container">
-          <div class="news-img" [ngStyle]="setGradient()">
-                    <!-- <img src="assets/images/Mobile-login-Cristina.jpg" alt="" class="background-img"> -->
-                    <div class="news-title">
-                              <h2>{{news.title}}</h2>
-                              <p>source: {{news.source_id}}</p>
-                    </div>
-          </div>
-          <div class="news">
-                    <section class="news-content">
-                              <p>{{news.content}}</p>
-                    </section>
-                    <aside class="related-news">
-                              <h2>Related News</h2>
-                    </aside>
+    <div class="news-img" [ngStyle]="setGradient()">
+        <div class="news-title">
+            <h2>{{news.title}}</h2>
+            <p>source: {{news.source_id}}, {{news.pubDate}}</p>
+        </div>
+    </div>
+    <div class="news">
+        <section class="news-content">
+            <div *ngIf="news.content">
+                <p>{{news.content}}</p>
+            </div>
+            <div *ngIf="!news.content">
+                <p>{{news.full_description}}</p>
+            </div>
+           
+        </section>
+        <aside class="related-container">
+            <h2>Related News</h2>
+            <div class="related-content" *ngFor="let new of relatedNews" (click)="openRelated(new)">
+                <img src="{{new.image_url}}" >
+                <p >{{new.title}}</p>
+            </div>
+        </aside>
 
-          </div>
+    </div>
 
 </main>

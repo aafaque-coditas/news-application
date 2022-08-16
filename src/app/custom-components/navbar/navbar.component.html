@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default" role="navigation">
   <section class="navbar-header">
     <div class="news-brand">
-      <span class="material-icons logo">article</span>
+      <span class="material-icons logo" (click)="onLogoClick()">article</span>
       <div>
-        <h2 class="navbar-brand" href="#">News Today</h2>
+        <h2 class="navbar-brand" >News Today</h2>
         <div class="time-date">
           <span class="button-date"> {{ todaysDate | date: "fullDate" }}</span>
         </div>
