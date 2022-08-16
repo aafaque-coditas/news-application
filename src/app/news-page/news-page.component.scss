@@ -1,0 +1,52 @@
+.news-container {
+          .news-img {
+                    position: relative;
+          }
+          .news-title {
+                    position: absolute;
+                    bottom: 5%;
+                    padding: 2rem;
+                    color: white;
+                    h2 {
+                              font-family: "Catamaran", sans-serif;
+                              color: white;
+                              font-size: 3rem;
+                    }
+                    p {
+                              padding: 0 1rem;
+                              font-size: 1rem;
+                              font-family: "IM Fell French Canon", serif;
+                    }
+          }
+          .news {
+                    display: grid;
+                    grid-template-columns: 3fr 1fr;
+                    margin: 1.5rem;
+                    .news-content {
+                              padding: 1rem;
+                              border-right: thin solid #ccc;
+
+                              p {
+                                        font-family: 'Roboto', sans-serif;
+                                        font-size: 1.3em;
+                                        width: 80%;
+                                        margin: 0 auto;
+                              }
+                              p::first-letter {
+                                        color: black;
+                                        font-weight: bolder;
+                                        float: left;
+                                        font-size: 5em;
+                                        margin: 0 0.1em 0 0;
+                                        line-height: 0.85;
+                              }
+                    }
+                    .related-news{
+                              padding: 1rem;
+                              h2{
+                                        font-family: "Catamaran", sans-serif;
+                                        border-bottom: thin solid #ccc;
+                              }
+                    }
+          }
+}

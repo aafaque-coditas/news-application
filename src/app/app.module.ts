@@ -11,11 +11,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule} from '@angular/material/icon';
-import {MatTableModule} from '@angular/material/table';
-import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap'
-import {MatChipsModule} from '@angular/material/chips';
-import {NavbarComponent} from './custom-components/navbar/navbar.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatChipsModule } from '@angular/material/chips';
+import { NavbarComponent } from './custom-components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -24,6 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LoginDialogueboxComponent } from './custom-components/login-dialoguebox/login-dialoguebox.component';
 import { AuthGuard } from './services/auth.guard';
 import { NgDialogAnimationService } from 'ng-dialog-animation';
+import { NewsPageComponent } from './news-page/news-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { NgDialogAnimationService } from 'ng-dialog-animation';
     AdminPageComponent,
     HomePageComponent,
     LoginDialogueboxComponent,
+    NewsPageComponent,
   ],
   imports: [
     BrowserModule,
