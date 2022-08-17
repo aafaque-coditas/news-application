@@ -47,8 +47,8 @@ export class NewsPageComponent implements OnInit {
         }
       })
       this.relatedNews=this.relatedNews.slice(0,3);
-    }
   }
+}
 
   openRelated(data:any){
     localStorage.setItem('data',JSON.stringify(data));
