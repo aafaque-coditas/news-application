@@ -18,12 +18,15 @@ export class NewsService {
 
   constructor(private httpClient: HttpClient) {
     if (localStorage.getItem('localData')) {
+
       this.newsCollection = localStorage.getItem('localData');
     }
     else {
       this.httpClient.get('../../assets/dummy-news.json').subscribe((response: any) => {
-
         this.newsCollection = response;
+        for(let index=0;index<this.newsCollection.results.length;index++){
+          this.newsCollection.results[index].index=index+1;
+        }
         localStorage.setItem('localData', JSON.stringify(this.newsCollection));
       })
     }
@@ -38,28 +41,23 @@ export class NewsService {
 
   searchData(valueToBeSearched: string) {
     this.keywordMatch = [];
-    this.httpClient
-      .get('../../assets/dummy-news.json')
-      .subscribe((response: any) => {
-        let currentCategory = localStorage.getItem('category');
-        response.results.map((news: any) => {
-          if (news.category[0] == currentCategory || currentCategory == 'all') {
-            if (news.keywords != null) {
-              news.keywords.map((keyword: string) => {
-                if (valueToBeSearched.toLowerCase() == keyword.toLowerCase()) {
-                  this.keywordMatch.push(news);
-
-                }
-              });
-            }
-            if (news.title.includes(valueToBeSearched)) {
-              this.keywordMatch.push(news);
-
-            }
+    this.httpClient.get('../../assets/dummy-news.json').subscribe((response: any) => {
+      let currentCategory = localStorage.getItem('category');
+      response.results.map((news: any) => {
+        if (news.category[0] == currentCategory || currentCategory == 'all') {
+          if (news.keywords != null) {
+            news.keywords.map((keyword: string) => {
+              if (valueToBeSearched.toLowerCase() == keyword.toLowerCase()) {
+                this.keywordMatch.push(news);
+              }
+            });
           }
-        });
-
+          if (news.title.toLowerCase().includes(valueToBeSearched.toLowerCase())) {
+            this.keywordMatch.push(news);
+          }
+        }
       });
+    });
     this.filteredNews.next(this.keywordMatch);
   }
 

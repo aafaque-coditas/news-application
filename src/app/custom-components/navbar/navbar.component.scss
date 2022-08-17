@@ -76,6 +76,16 @@ h2 {
   .login-btn {
     padding: 0.5rem;
   }
+
+  .logout-btn {
+    padding: 0.25rem;
+    color:white;
+    background-color:rgba(red,1);
+  }
+
+  .add-news-btn{
+    padding:0.25rem;
+  }
 }
 
 @media only screen and (max-width: 425px) {
