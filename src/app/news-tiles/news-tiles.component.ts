@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class NewsTilesComponent implements OnInit {
   @Input() newsList: any;
 
-  constructor(private route:Router) {}
+  constructor(private router:Router) {}
 
   ngOnInit(): void {}
 
@@ -31,9 +31,8 @@ export class NewsTilesComponent implements OnInit {
     }
   }
   openNews(data:any){
-    console.log(data)
     localStorage.setItem('data',JSON.stringify(data))
-    this.route.navigate(['/news'])
-    // console.log(data)
+    this.router.navigate(['/news'])
+    
   }
 }

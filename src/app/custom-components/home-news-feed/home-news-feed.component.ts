@@ -32,8 +32,6 @@ export class HomeNewsFeedComponent implements OnInit {
   getNewsData() {
     this.localData=localStorage.getItem('localData') || '';
     this.localData=JSON.parse(this.localData);
-    console.log('results loading',this.localData);
-    
       if (this.category === "all") {
         this.news = this.localData.results;
       }

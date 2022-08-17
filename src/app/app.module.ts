@@ -25,6 +25,7 @@ import { LoginDialogueboxComponent } from './custom-components/login-dialoguebox
 import { AuthGuard } from './services/auth.guard';
 import { NgDialogAnimationService } from 'ng-dialog-animation';
 import { NewsPageComponent } from './news-page/news-page.component';
+import { AdminNavbarComponent } from './custom-components/admin-navbar/admin-navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { NewsPageComponent } from './news-page/news-page.component';
     HomePageComponent,
     LoginDialogueboxComponent,
     NewsPageComponent,
+    AdminNavbarComponent,
   ],
   imports: [
     BrowserModule,

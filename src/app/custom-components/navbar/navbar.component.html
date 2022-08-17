@@ -3,7 +3,7 @@
     <div class="news-brand">
       <span class="material-icons logo" (click)="onLogoClick()">article</span>
       <div>
-        <h2 class="navbar-brand" >News Today</h2>
+        <h2 class="navbar-brand">News Today</h2>
         <div class="time-date">
           <span class="button-date"> {{ todaysDate | date: "fullDate" }}</span>
         </div>
@@ -11,16 +11,27 @@
     </div>
 
     <div class="search">
-      <mat-form-field>
-        <input matInput type="text" [(ngModel)]="searchInput" name="value" placeholder="Search" class="search-input" />
+      <mat-form-field >
+        <input matInput type="text" [(ngModel)]="searchInput" name="value" 
+        placeholder="Search" class="search-input" (keyup.enter)="searchValue()"/>
         <button matSuffix mat-button (click)="searchValue()">
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
     </div>
 
-    <div class="login-btn">
-      <button mat-raised-button (click)="openDialog()">login</button>
+    <div class="login-btn" *ngIf="needsToLogin">
+      <button mat-raised-button (click)="openDialog()">Login</button>
     </div>
+
+    <div *ngIf="!needsToLogin">
+      <button class="add-news-btn" mat-raised-button (click)="onAddNewsClick()">Add News</button>
+    </div>
+
+    <div *ngIf="!needsToLogin">
+      <button class="logout-btn" mat-raised-button (click)="onLogoutClick()">Logout</button>
+    </div>
+
+    
   </section>
 </nav>

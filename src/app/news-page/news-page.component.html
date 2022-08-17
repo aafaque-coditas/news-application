@@ -12,18 +12,15 @@
                 <p>{{news.content}}</p>
             </div>
             <div *ngIf="!news.content">
-                <p>{{news.full_description}}</p>
+                <p>{{news.full_description || news.content || news.description}}</p>
             </div>
-           
         </section>
         <aside class="related-container">
             <h2>Related News</h2>
             <div class="related-content" *ngFor="let new of relatedNews" (click)="openRelated(new)">
-                <img src="{{new.image_url}}" >
-                <p >{{new.title}}</p>
+                <img src="{{new.image_url}}">
+                <p>{{new.title}}</p>
             </div>
         </aside>
-
     </div>
-
 </main>

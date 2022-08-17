@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
 import { LoginDialogueboxComponent } from '../login-dialoguebox/login-dialoguebox.component';
@@ -15,15 +15,26 @@ export class NavbarComponent implements OnInit {
   todaysDate!: string;
   name:string='';
   password:string='';
-  constructor(private newsService: NewsService, public dialog: NgDialogAnimationService,private router:Router){}
+  needsToLogin:boolean=true;
+
+  constructor(private newsService: NewsService, 
+    public dialog: NgDialogAnimationService,private router:Router){}
 
   ngOnInit(): void {
     this.date = new Date();
     this.todaysDate = this.date.toDateString();
+    if(localStorage.getItem('adminToken')){
+      this.needsToLogin=false;
+    }
   }
-  searchValue() {
+
+    searchValue() {
+      if(this.router.url!='/'){
+        this.router.navigate(['/']);
+      }
     this.newsService.searchData(this.searchInput);
   }
+
   openDialog(){
     const dialogRef=this.dialog.open(LoginDialogueboxComponent, {
       width: "50%",
@@ -35,6 +46,16 @@ export class NavbarComponent implements OnInit {
 
   onLogoClick(){
     this.router.navigate(['']);
+  }
+
+  onAddNewsClick(){
+    this.router.navigate(['admin']);
+  }
+
+  onLogoutClick(){
+    this.needsToLogin=true;
+    alert('Logged out!');
+    localStorage.removeItem('adminToken');
   }
 }
 
