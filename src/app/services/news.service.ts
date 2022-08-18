@@ -38,6 +38,7 @@ export class NewsService {
   }
 
   searchData(valueToBeSearched: string) {
+    console.log(valueToBeSearched)
     this.keywordMatch = [];
     let currentCategory = localStorage.getItem('category');
     let completeData = localStorage.getItem('localData') || '';

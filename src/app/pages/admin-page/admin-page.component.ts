@@ -24,20 +24,20 @@ export class AdminPageComponent implements OnInit {
   }
 
   newsForm = new FormGroup({
-    title: new FormControl(),
-    link: new FormControl(),
-    keywords: new FormControl(),
-    creator: new FormControl(),
-    video_url: new FormControl(),
-    description: new FormControl(),
-    content: new FormControl(),
-    pub_Date: new FormControl(),
-    full_description: new FormControl(),
-    image_url: new FormControl(),
-    source_id: new FormControl(),
-    country: new FormControl(),
-    category: new FormControl(),
-    language: new FormControl(),
+    title: new FormControl('', [Validators.required]),
+    link: new FormControl('', [Validators.required]),
+    keywords: new FormControl('', [Validators.required]),
+    creator: new FormControl('', [Validators.required]),
+    video_url: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    content: new FormControl('', [Validators.required]),
+    pub_Date: new FormControl('', [Validators.required]),
+    full_description: new FormControl('', [Validators.required]),
+    image_url: new FormControl('', [Validators.required]),
+    source_id: new FormControl('', [Validators.required]),
+    country: new FormControl([], [Validators.required]),
+    category: new FormControl('', [Validators.required]),
+    language: new FormControl('', [Validators.required]),
   })
 
 
@@ -66,5 +66,8 @@ export class AdminPageComponent implements OnInit {
     }
     this.newsForm.get('category')?.setValue(news['category']);
     this.newsForm.setValue(news);
+  }
+  reset(){
+    this.newsForm.reset();
   }
 }

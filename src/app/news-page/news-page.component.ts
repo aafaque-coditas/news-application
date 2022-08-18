@@ -50,8 +50,8 @@ export class NewsPageComponent implements OnInit {
         }
       })
       this.relatedNews=this.relatedNews.slice(0,3);
-    }
   }
+}
 
   openRelated(data:any){
     this.currentId=data.index;

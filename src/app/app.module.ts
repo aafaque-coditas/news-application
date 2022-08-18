@@ -26,6 +26,8 @@ import { AuthGuard } from './services/auth.guard';
 import { NgDialogAnimationService } from 'ng-dialog-animation';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { AdminNavbarComponent } from './custom-components/admin-navbar/admin-navbar.component';
+import { FooterComponent } from './custom-components/footer/footer.component';
+import { SearchDirective } from './custom-directives/search.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,8 @@ import { AdminNavbarComponent } from './custom-components/admin-navbar/admin-nav
     LoginDialogueboxComponent,
     NewsPageComponent,
     AdminNavbarComponent,
+    FooterComponent,
+    SearchDirective,
   ],
   imports: [
     BrowserModule,
