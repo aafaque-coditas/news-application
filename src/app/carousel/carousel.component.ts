@@ -1,7 +1,5 @@
-
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
-
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -10,46 +8,57 @@ import { Component, Input, OnInit } from '@angular/core';
   animations: [
     trigger('carouselAnimation', [
       transition('void=>*', [
-        style({ opacity: 0}),
-        animate('300ms', style({ opacity: 1,}),
-        
-        )
+        style({ opacity: 0 }),
+        animate('600ms', style({ opacity: 1 })),
       ]),
-      transition('*=>void', [
-        animate('300ms', style({ opacity: 0}))
-      ])
-    ])
-  ]
+      transition('*=>void', [animate('600ms', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class CarouselComponent implements OnInit {
+  @Input() slides!: any;
+  @Input() carouselSlides!: any;
 
-  @Input() slides: any;
-  constructor() { }
+  category: string = 'top';
+  constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.nextSlide();
+  }
 
   currentSlide = 0;
 
   onPreviousClick() {
     let previous = this.currentSlide - 1;
-    this.currentSlide = previous < 0 ? this.slides.length - 1 : previous;
+    this.currentSlide =
+      previous < 0 ? this.carouselSlides.length - 1 : previous;
   }
 
   onNextClick() {
     let next = this.currentSlide + 1;
-    this.currentSlide = next === this.slides.length ? 0 : next;
+    this.currentSlide = next === this.carouselSlides.length ? 0 : next;
   }
 
+  nextSlide() {
+    let next;
+    setInterval(() => {
+      next = this.currentSlide + 1;
+      this.currentSlide = next === this.carouselSlides.length ? 0 : next;
+    }, 5000);
+  }
+
+  changeCurrentSlide(slideNum: number) {
+    this.currentSlide = slideNum;
+  }
+
+  setActiveClass(slideNumber: number) {
+    return this.currentSlide == slideNumber ? 'active' : '';
+  }
+
+  setMyStyle(slide: any) {
+    let styles = {
+      backgroundImage: `linear-gradient(rgb(0 0 0 / 26%), rgb(0 0 0)), url(${slide.image_url})`,
+    };
+    return styles;
+  }
 }
-
-
-trigger('carouselAnimation', [
-  transition('void=>*', [
-    style({ opacity: 0 }),
-    animate('300ms', style({ opacity: 1, transform: 'translateX(200%)' }),
-    )
-  ]),
-  transition('*=>void', [
-    animate('300ms', style({ opacity: 0, transform: 'translateX(0%)' }))
-  ])
-])

@@ -1,89 +1,129 @@
 .carousel-container {
-    position:relative;
-    height:60vh;
-    margin-bottom:0.5rem;
-    width:100%;
-    overflow: hidden;
-    border-radius: 0.5em;
+  position: relative;
+  height: 70vh;
+  width: 80vw;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: rgba(224, 195, 195, 0.15) 1.95px 1.95px 2.6px;
+  padding: 1rem 0;
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 15%;
+    height: 100%;
+    width: 70%;
+    object-fit: cover;
+    transition: transform 1000s cubic-bezier(0.25, 0.46, 0.45, 0.84);
+    background-size: cover;
+    margin: 1rem 0;
+  }
+  .carousel-slide::after {
+    display: block;
+    position: relative;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+    margin-top: -150px;
+    height: 150px;
+    width: 100%;
+    content: "";
+  }
 
-    .slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background-color: #ccc;
-        width: 100%;
-        object-fit: contain;
-        transition: transform 1000s cubic-bezier(0.25, 0.46, 0.45, 0.84);
-        border-radius: 0.5em;
+  .slide:hover {
+    transform: scale(1.25);
+  }
+
+  .title-bar {
+    max-width: 70%;
+
+    .news-title {
+      width: 70%;
+      position: absolute;
+      font-weight: bold;
+      bottom: 2rem;
+      left: 15%;
+      color: #f2f2f2;
+      padding: 1rem;
+
+      text-decoration: none;
+      font-size: 1.5rem;
     }
- 
-        .news-title{
-            border-bottom:thin solid;
-            position:absolute;
-            font-weight: bold;
-            bottom: 16px;
-            left:16px;
-            color:#f2f2f2;
-            padding:0.25rem;
-            background-color: #222428;
-            text-decoration:none;
-            font-size:1.25rem;
-        }
-    
-    .slide:hover {
-        transform: scale(1.25);
+  }
+
+  .slide:hover {
+    transform: scale(1.25);
+  }
+
+  .dots-container {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 45%;
+    display: flex;
+    flex-direction: row;
+
+    .dots {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
     }
 
+    .active,
+    .dots:hover {
+      background-color: yellow;
+    }
+  }
 
-    .control {
-        border: none;
-        background-color: transparent;
-        outline: 0; 
-        position: absolute;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0.5em;
-        color: white;
-        font-weight: bold;
-        font-size: 3em;
-        user-select: none;
-        height: 100%;
-        opacity: 80%;
-        transition: opacity 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+  .control {
+    border: none;
+    background-color: transparent;
+    outline: 0;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    user-select: none;
+    height: 100%;
+    opacity: 80%;
+    transition: opacity 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
 
-        &:hover,
-        &:focus {
-            opacity: 1;
-        }
-
-        &.next {
-            right: 0;
-        }
-
-        &.prev {
-            left: 0;
-        }
+    &:hover,
+    &:focus {
+      opacity: 1;
     }
 
-    
-    .arrow {
-        display: block;
-        border-left: 0.1em solid white;
-        border-bottom: 0.1em solid white;
-        width: 0.5em;
-        height: 0.5em;
-
-        &.left {
-            transform: rotate(45deg);
-        }
-
-        &.right {
-            transform: rotate(225deg);
-        }
+    &.next {
+      right: 0;
     }
+
+    &.prev {
+      left: 0;
+    }
+  }
+
+  .arrow {
+    display: block;
+    border-left: 0.2rem solid black;
+    border-bottom: 0.2rem solid black;
+    width: 1rem;
+    height: 1rem;
+
+    &.left {
+      transform: rotate(45deg);
+    }
+
+    &.right {
+      transform: rotate(225deg);
+    }
+  }
 }
-
-

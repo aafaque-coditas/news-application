@@ -1,25 +1,69 @@
-
-.nav-options {
+.news-feed-container {
+  .nav-options {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.1rem;
     display: flex;
     justify-content: space-evenly;
-    cursor:pointer;
-  
+    background-color: #fff;
+    border: thin solid #ccc;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    margin-bottom: 2px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+
+    .nav-item {
+      font-family: "Nunito Sans", sans-serif;
+      color: black;
+    }
+
     .nav-item::after {
       content: "";
       display: block;
       width: 0px;
       height: 2px;
-      background: #fec400;
       transition: 0.4s;
     }
 
     .nav-item:hover::after {
       width: 100%;
     }
-    .active {
-      border-bottom: thin solid black;
+    .activeAll {
+      border-bottom: 2px solid #ac92eb;
+    }
+    .activeTop {
+      border-bottom: 2px solid #fec400;
+    }
+    .activeBusiness {
+      border-bottom: 2px solid #4fc1e8;
+    }
+    .activeTechnology {
+      border-bottom: 2px solid #a0d568;
+    }
+    .activeEntertainment {
+      border-bottom: 2px solid #ed5564;
+    }
+    .activeScience {
+      border-bottom: 2px solid #6e7889;
     }
   }
-  
+
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .nav-options {
+    font-size: 0.75rem;
+  }
+}
+
+.filteredData {
+  background-color: black;
+  color: white;
+}

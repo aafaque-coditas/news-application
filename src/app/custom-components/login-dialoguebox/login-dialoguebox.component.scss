@@ -1,0 +1,58 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
+    color: #0aceb6;
+    transform: translateY(90%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-size: 2rem;
+    }
+    p {
+      color: #2e4951;
+    }
+  }
+  .dialog-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    transform: translateY(25%);
+
+    .dialog-img {
+      object-fit: contain;
+      width: 100%;
+    }
+
+    .dialog-box {
+      background-color: white;
+      width: min-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 8px;
+      padding: 1rem;
+      gap: 1rem;
+
+      .dialog-content {
+        display: flex;
+        flex-direction: column;
+        .input-field {
+          background-color: #fff;
+        }
+      }
+      .dialog-footer {
+        display: flex;
+        // flex-direction: column;
+        gap: 0.5rem;
+        .login-btn {
+          background-color: #2196f3;
+        }
+      }
+    }
+  }
+}

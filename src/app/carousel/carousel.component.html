@@ -1,19 +1,25 @@
-
 <div class="carousel-container">
-    <ng-container *ngFor="let slide of slides;let i=index">
-        <img *ngIf="i === currentSlide" [src]="slide.image_url" class="slide" @carouselAnimation />
-        <div class="title-bar">
-            <a class="news-title" *ngIf="i === currentSlide" href="slide.link" @carouselAnimation>{{slide.title}}</a>
-        </div>
+  <ng-container *ngFor="let slide of carouselSlides; let i = index">
+    <div *ngIf="i === currentSlide" class="carousel-slide slide" [ngStyle]="setMyStyle(slide)" @carouselAnimation>
+    </div>
 
-    </ng-container>
+    <div class="title-bar">
+      <a class="news-title" *ngIf="i === currentSlide" href="slide.link" @carouselAnimation>{{ slide.title }}</a>
+    </div>
+  </ng-container>
 
-
-    <button class="control prev">
-        <span class="arrow left" (click)="onPreviousClick()"></span>
-    </button>
-    <button class="control next">
-        <span class="arrow right" (click)="onNextClick()"></span>
-    </button>
-
+  <div class="dots-container" >
+    <span class="dots" [ngClass]="setActiveClass(0)" (click)="changeCurrentSlide(0)"></span>
+    <span class="dots" [ngClass]="setActiveClass(1)" (click)="changeCurrentSlide(1)"></span>
+    <span class="dots" [ngClass]="setActiveClass(2)" (click)="changeCurrentSlide(2)"></span>
+    <span class="dots" [ngClass]="setActiveClass(3)" (click)="changeCurrentSlide(3)"></span>
+    <span class="dots" [ngClass]="setActiveClass(4)" (click)="changeCurrentSlide(4)"></span>
+  </div>
+  
+  <button class="control prev">
+    <span class="arrow left" (click)="onPreviousClick()"></span>
+  </button>
+  <button class="control next">
+    <span class="arrow right" (click)="onNextClick()"></span>
+  </button>
 </div>

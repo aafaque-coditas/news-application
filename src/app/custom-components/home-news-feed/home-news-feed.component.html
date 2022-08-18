@@ -1,9 +1,11 @@
-<section class="nav-options">
-    <span class="nav-item " (click)="categoryClicked('top')">Trending</span>
-    <span class="nav-item" (click)="categoryClicked('business')">Business</span>
-    <span class="nav-item" (click)="categoryClicked('technology')">Technology</span>
-    <span class="nav-item" (click)="categoryClicked('entertainment')">Entertainment</span>
-    <span class="nav-item" (click)="categoryClicked('science')">Science</span>
+<div class="news-feed-container">
+  <section class="nav-options">
+    <ng-container *ngFor="let category of categoryList">
+      <span class="nav-item" (click)="changeCategory(category)" [ngClass]="isActive(category)">{{category}}</span>
+    </ng-container>
   </section>
-<app-carousel [slides]="news"></app-carousel>
-<app-news-tiles [newsList]="news"></app-news-tiles>
+  <app-carousel [carouselSlides]="carouselSlides"></app-carousel>
+  <div class="news-list">
+    <app-news-tiles [newsList]="news"></app-news-tiles>
+  </div>
+</div>
