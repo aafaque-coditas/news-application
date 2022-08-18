@@ -12,7 +12,7 @@
 
     <div class="search" *ngIf="onHomePage">
       <mat-form-field >
-        <input matInput type="text" [(ngModel)]="searchInput" name="value" 
+        <input matInput type="text"  [(ngModel)]="searchInput" name="value"
         placeholder="Search" class="search-input" (keyup.enter)="searchValue()"/>
         <button matSuffix mat-button (click)="searchValue()">
           <mat-icon>search</mat-icon>
@@ -32,6 +32,6 @@
       <button class="logout-btn" mat-raised-button (click)="onLogoutClick()">Logout</button>
     </div>
 
-    
+
   </section>
 </nav>
