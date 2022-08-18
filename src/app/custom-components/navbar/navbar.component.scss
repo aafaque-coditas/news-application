@@ -12,13 +12,13 @@ h2 {
   gap: 1rem;
   align-items: center;
   justify-content: space-evenly;
-  border-bottom: thin solid #ccc;
   background-color: black;
   color: white;
 
   .logo {
     align-self: center;
     font-size: 3rem;
+    cursor:pointer;
     h2 {
       margin: 0;
     }
@@ -74,6 +74,16 @@ h2 {
   }
   .login-btn {
     padding: 0.5rem;
+  }
+
+  .logout-btn {
+    padding: 0.25rem;
+    color:white;
+    background-color:rgba(red,1);
+  }
+
+  .add-news-btn{
+    padding:0.25rem;
   }
 }
 

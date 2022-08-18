@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-tiles',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NewsTilesComponent implements OnInit {
   @Input() newsList: any;
 
-  constructor() {}
+  constructor(private router:Router) {}
 
   ngOnInit(): void {}
 
@@ -28,5 +29,10 @@ export class NewsTilesComponent implements OnInit {
       case 'science':
         return { 'background-color': '#D2E5D0' };
     }
+  }
+  openNews(data:any){
+    localStorage.setItem('data',JSON.stringify(data));
+    console.log('checling',data);
+    this.router.navigate(['/news',data.index]);
   }
 }

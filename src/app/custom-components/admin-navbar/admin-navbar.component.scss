@@ -1,0 +1,45 @@
+.admin-navbar-container {
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    width:100vw;
+    padding:1rem 1rem;
+
+    .news-brand {
+        display: flex;
+        gap: 0.75rem;
+        align-content: center;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+
+        .navbar-brand {
+            font-family: "Playfair Display", serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            display: inline-block;
+            padding-top: 1rem;
+            color: white;
+        }
+
+        .logo {
+            align-self: center;
+            font-size: 3rem;
+            cursor:pointer;
+           
+        }
+        
+    }
+
+    .logout-btn-container{
+        padding:0.5rem;
+
+        .logout-btn {
+            color: white;
+            background-color: rgba(red, 1);
+        }
+    }
+    
+}

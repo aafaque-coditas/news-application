@@ -24,7 +24,6 @@ export class HomeNewsFeedComponent implements OnInit {
   ngOnInit(): void {
     localStorage.setItem('category', 'top');
     this.newsService.filteredNews$.subscribe((response) => {
-      console.log('response in subscribe', response);
       this.news = response;
     });
     this.getNewsData();
@@ -33,24 +32,18 @@ export class HomeNewsFeedComponent implements OnInit {
   getNewsData() {
     this.localData=localStorage.getItem('localData') || '';
     this.localData=JSON.parse(this.localData);
-    console.log('results loading',this.localData);
-    
       if (this.category === "all") {
-        console.log('locale data',this.localData.results);
         this.news = this.localData.results;
-        console.log('news',this.news);
       }
       else {
         this.news = this.localData.results.filter(
           (result: any) => result.category[0] === this.category || result.category===this.category);
-        console.log('news after filtering',this.news);
       }
       if (this.news.length < 5) {
         this.carouselSlides = this.news.slice(0, this.news.length);
       } else {
         this.carouselSlides = this.news.slice(0, 5);
       }
-    
   }
 
   changeCategory(type: string) {
