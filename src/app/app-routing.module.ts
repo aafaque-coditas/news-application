@@ -9,7 +9,7 @@ import { NewsPageComponent } from './news-page/news-page.component';
 const routes: Routes = [
 {path:'',component:HomePageComponent},
 {path:'admin',component:AdminPageComponent, canActivate:[AuthGuard]},
-{path:'news', component:NewsPageComponent}
+{path:'news/:index', component:NewsPageComponent}
 ];
 
 @NgModule({

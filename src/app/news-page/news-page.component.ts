@@ -1,5 +1,4 @@
-import { Router } from '@angular/router';
-
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,19 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsPageComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private activatedRoute:ActivatedRoute) { }
   news:any;
+  currentId:number=0;
   relatedNews:any=[];
-
+  
   ngOnInit(): void {
     window.scrollTo(0,0);
+    this.currentId=this.activatedRoute.snapshot.params['index'];
+    console.log(this.currentId);
     this.getData();
     this.getRelatedNews(); 
   }
 
   getData(){
-    let data:any = localStorage.getItem('data');
-    this.news = JSON.parse(data);
+   let completeData=localStorage.getItem('localData')|| '';
+    let data=JSON.parse(completeData);
+    console.log(data.results[this.currentId-1]);
+    this.news=data.results[this.currentId-1];
   }
 
   setGradient(){
@@ -39,7 +43,6 @@ export class NewsPageComponent implements OnInit {
   getRelatedNews() {
     let currentCategory = localStorage.getItem('category') || '';
     let localData = JSON.parse(localStorage.getItem('localData') || '');
-    
     if (localData) {
       localData.results.map((news: any) => {
         if (news.category[0] == currentCategory && news.title!=this.news.title) {
@@ -51,10 +54,9 @@ export class NewsPageComponent implements OnInit {
   }
 
   openRelated(data:any){
-    localStorage.setItem('data',JSON.stringify(data));
+    this.currentId=data.index;
     this.getData();
+    this.router.navigate(['/news',data.index]);
     window.scrollTo(0,0);
-    this.router.navigate(['/news']);
-
   }
 }

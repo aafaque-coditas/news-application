@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   name:string='';
   password:string='';
   needsToLogin:boolean=true;
+  onHomePage:boolean=true;
 
   constructor(private newsService: NewsService, 
     public dialog: NgDialogAnimationService,private router:Router){}
@@ -26,13 +27,13 @@ export class NavbarComponent implements OnInit {
     if(localStorage.getItem('adminToken')){
       this.needsToLogin=false;
     }
+    if(this.router.url!='/'){
+      this.onHomePage=false;
+    }
   }
 
     searchValue() {
-      if(this.router.url!='/'){
-        this.router.navigate(['/']);
-      }
-    this.newsService.searchData(this.searchInput);
+      this.newsService.searchData(this.searchInput);
   }
 
   openDialog(){
