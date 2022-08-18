@@ -31,8 +31,8 @@ export class NewsTilesComponent implements OnInit {
     }
   }
   openNews(data:any){
-    localStorage.setItem('data',JSON.stringify(data))
-    this.router.navigate(['/news'])
-    
+    localStorage.setItem('data',JSON.stringify(data));
+    console.log('checling',data);
+    this.router.navigate(['/news',data.index]);
   }
 }
